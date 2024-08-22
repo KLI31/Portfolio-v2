@@ -1,4 +1,4 @@
-import React from "./icons/React.astro";
+import react from "./icons/React.astro";
 import Node from "./icons/Node.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import Firebase from "./icons/Firebase.astro";
@@ -21,7 +21,7 @@ export const TAGS = {
   React: {
     name: "React",
     class: "bg-blue-900",
-    icon: React,
+    icon: react,
   },
   Node: {
     name: "Node.js",
