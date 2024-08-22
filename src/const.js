@@ -66,7 +66,7 @@ export const PROJECTS = [
     description:
       "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase",
     link: "https://inmonteriahouse.onrender.com",
-    image: "../../public/project1.webp",
+    image: "/project1.webp",
     github: "https://github.com/KLI31/inMonteriaHouse",
     tags: [TAGS.React, TAGS.Node, TAGS.Tailwind, TAGS.Firebase, TAGS.MongoDB],
   },
@@ -74,7 +74,7 @@ export const PROJECTS = [
     name: "Landing Page Rstudio",
     description:
       "Proyecto universitario para la asignatura de desarrollo web usando metodologías ágiles. Landing page para la empresa Rstudio, desarrollado con HTML, CSS y JavaScript, desplegado en Vercel",
-    image: "../../public/proyect2.webp",
+    image: "/proyect2.webp",
     github: "https://github.com/KLI31/Desarrollo-web/blob/main/index.js",
     link: "https://headphone-shop-seven.vercel.app/",
     tags: [TAGS.Html, TAGS.Css, TAGS.JavaScript],
