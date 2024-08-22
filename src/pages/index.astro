@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import Experience from "../components/Experiencie.astro"
+import ProyectItem from "../components/ProyectItem.astro";
+import DevStack from "../icons/DevStack.astro";
+import CodeIcon from "../icons/CodeIcon.astro";
+import StackList from "../components/StackList.astro";
+import AboutMe from "../components/AboutMe.astro";
+import User from "../icons/User.astro";
+
+---
+
+<Layout title="Portfolio Luis" description="Contrata a Luis para crear tus aplicaciones web o movil. Desarrollador frontend. Caracterizado por crear aplaciones unicas">
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero />
+    </SectionContainer >
+    <div class="space-y-24">
+      <SectionContainer id="experiencia" class="mx-auto">
+        
+        <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+      <Briefcase class="size-8"/>
+        Experiencia laboral
+      </h2>
+      <Experience/>
+      </SectionContainer>
+
+      <SectionContainer id="proyectos">
+        <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+      <CodeIcon class="size-8"/>
+        Mis proyectos
+      </h2>
+
+       <ProyectItem/>      
+      </SectionContainer>
+
+      <SectionContainer>
+        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"><DevStack class="size-8"/> Stack tecnologico</h2>
+        <StackList/>
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"> <User class="size-8"/> Sobre mí</h2>
+
+
+        <AboutMe/>
+      </SectionContainer>
+    </div>
+  </main>
+</Layout>

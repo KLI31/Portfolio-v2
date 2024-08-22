@@ -1,0 +1,14 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro"
+import { EXPERIENCIE } from "../const";
+---
+
+<ol class="relative mt-10">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

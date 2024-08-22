@@ -1,0 +1,17 @@
+---
+import { STACK } from "../const";
+import Tooltip from "./Tooltip.astro";
+import "../style.css"
+---
+
+<section class='stacks mt-10'>
+    <ul class="flex flex-wrap">
+      {STACK.map(stack => (
+        <li class="stack "
+            style={{ '--background-dif': stack.color }} tool-tip>
+                <Tooltip  aria-hidden='true'>{stack.name}</Tooltip>
+          <stack.icon class="size-8 block object-contain"/>
+        </li>
+      ))}
+    </ul>
+  </section>
