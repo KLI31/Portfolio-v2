@@ -66,7 +66,7 @@ export const PROJECTS = [
     description:
       "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase",
     link: "https://inmonteriahouse.onrender.com",
-    image: "../../public/assets/project1.webp",
+    image: "../../public/project1.webp",
     github: "https://github.com/KLI31/inMonteriaHouse",
     tags: [TAGS.React, TAGS.Node, TAGS.Tailwind, TAGS.Firebase, TAGS.MongoDB],
   },
@@ -74,7 +74,7 @@ export const PROJECTS = [
     name: "Landing Page Rstudio",
     description:
       "Proyecto universitario para la asignatura de desarrollo web usando metodologías ágiles. Landing page para la empresa Rstudio, desarrollado con HTML, CSS y JavaScript, desplegado en Vercel",
-    image: "../../public/assets/proyect2.webp",
+    image: "../../public/proyect2.webp",
     github: "https://github.com/KLI31/Desarrollo-web/blob/main/index.js",
     link: "https://headphone-shop-seven.vercel.app/",
     tags: [TAGS.Html, TAGS.Css, TAGS.JavaScript],
@@ -93,7 +93,6 @@ export const EXPERIENCIE = [
     date: "Febrero 2022 - Agosto-2022",
     title: "Desarrollador Frontend mobile",
     company: "Freelancer",
-    image: "../../public/assets/freelancer.webp",
     description:
       "Responsable del diseño y desarrollo completo de una aplicación móvil utilizando React Native para una empresa privada. Desde la concepción de la idea hasta la implementación final, llevé a cabo todas las etapas del desarrollo, asegurando una solución robusta y funcional para el cliente.",
   },
