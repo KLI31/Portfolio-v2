@@ -50,12 +50,4 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-Cosas que se faltan en el portfolio:
-
-- Descripción de la página (SEO) ✅
-- IMplementacion de cambio de idioma
-- Mejora del disponible para trabajar
-- Responsive Design hero section ✅
+## Gracias por pasar por aqui, toma un cafecito Dev ☕
