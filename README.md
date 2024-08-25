@@ -2,7 +2,7 @@
 
 
 
-![Portfolio Screenshot](https://imgur.com/LQnTYja)
+![Portfolio Screenshot](portfolio.png)
 
 
 
