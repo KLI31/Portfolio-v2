@@ -88,6 +88,7 @@ export const EXPERIENCIE = [
     company: "Coinsenda",
     description:
       "Trabajé en el desarrollo y mejora de una página de criptomonedas. Durante mi práctica, contribuí a la creación de nuevas funcionalidades web y optimicé las existentes. Además, adquirí conocimientos en patrones de diseño, aplicándolos en el desarrollo de interfaces escalables y eficientes.",
+    link: "/Carta.pdf",
   },
   {
     date: "Febrero 2022 - Agosto-2022",
@@ -95,6 +96,41 @@ export const EXPERIENCIE = [
     company: "Freelancer",
     description:
       "Responsable del diseño y desarrollo completo de una aplicación móvil utilizando React Native para una empresa privada. Desde la concepción de la idea hasta la implementación final, llevé a cabo todas las etapas del desarrollo, asegurando una solución robusta y funcional para el cliente.",
+  },
+];
+
+export const EDUCATION = [
+  {
+    college: "Universidad de Córdoba",
+    image: "/Unicordoba-logo.webp",
+    degree: "Ingeniería de Sistemas",
+    date: "Ene 2020 - Actualidad",
+    description:
+      "Actualmente cursando el 8° semestre de la carrera de Ingeniería de Sistemas en la Universidad de Córdoba. Enfocado en el desarrollo de software. Activo en la comunidad universitaria y participante en proyectos de investigación.",
+  },
+  {
+    college: "PeakU",
+    image: "/Logo-PeakU.webp",
+    degree: "Bootcamp desarrollador fullstack",
+    date: "Ago 2023 - Jun 2024",
+    description:
+      "Bootcamp intensivo de desarrollo web fullstack. Adquirí conocimientos en tecnologías frontend y backend, así como habilidades de trabajo en equipo y resolución de problemas. Desarrollé proyectos reales y adquirí experiencia en el mundo laboral.",
+  },
+  {
+    college: "Universidad Nacional de Colombia",
+    image: "/UNAL.webp",
+    degree: "Diplomado en Desarrollo Web",
+    date: "Ene 2022 - Dec 2022",
+    description:
+      "Diplomado en Desarrollo Web con énfasis en tecnologías frontend y backend. Adquirí conocimientos en HTML, CSS, JavaScript, Python, Git y metodologías ágiles.",
+  },
+  {
+    college: "Evolve your English",
+    image: "/Evolve-logo.webp",
+    degree: "Curso de Inglés",
+    date: "Feb 2021 - Feb 2022",
+    description:
+      "Curso de inglés avanzado en la academia Evolve your English. Adquirí habilidades de comunicación y comprensión en el idioma, así como tambien conocimientos en gramática y vocabulario.",
   },
 ];
 
