@@ -91,11 +91,18 @@ export const EXPERIENCIE = [
     link: "/Carta.pdf",
   },
   {
-    date: "Febrero 2022 - Agosto-2022",
+    date: "Enero 2023 - Septiembre-2023",
     title: "Desarrollador Frontend mobile",
     company: "Freelancer",
     description:
       "Responsable del diseño y desarrollo completo de una aplicación móvil utilizando React Native para una empresa privada. Desde la concepción de la idea hasta la implementación final, llevé a cabo todas las etapas del desarrollo, asegurando una solución robusta y funcional para el cliente.",
+  },
+  {
+    date: "Febrero 2022 - Noviembre 2022",
+    title: "Desarrollador Frontend",
+    company: "Freelancer",
+    description:
+      "Desarrollé interfaces de usuario interactivas y optimizadas para diversas plataformas utilizando tecnologías como React y JavaScript. Colaboré en proyectos de desarrollo web, asegurando una experiencia de usuario fluida y diseño responsivo, cumpliendo con los objetivos de cada proyecto y garantizando la satisfacción del cliente.",
   },
 ];
 
