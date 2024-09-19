@@ -23,7 +23,7 @@ import Link from "../icons/Link.astro";
           {tags.map((tag) => (
             <li>
               <span
-                class={`inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium ${tag.class} text-gray-100 dark:text-gray-200 transition-all transform hover:-translate-y-1 hover:ml-1 hover:scale-105 border border-transparent dark:border-gray-800`}
+                class={`inline-flex items-center select-none gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium ${tag.class} text-gray-100 dark:text-gray-200 transition-all border border-transparent dark:border-gray-800`}
               >
                 <tag.icon class="size-4" />
                 {tag.name}

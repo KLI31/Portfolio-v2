@@ -10,6 +10,8 @@ import CodeIcon from "../icons/CodeIcon.astro";
 import StackList from "../components/StackList.astro";
 import AboutMe from "../components/AboutMe.astro";
 import User from "../icons/User.astro";
+import Book from "../icons/Book.astro";
+import Education from "../components/Education.astro";
 
 ---
 
@@ -40,6 +42,17 @@ import User from "../icons/User.astro";
 
        <ProyectItem/>      
       </SectionContainer>
+
+      <SectionContainer id="estudios">
+        <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+      <Book class="size-8"/>
+        Estudios
+      </h2>
+      <Education/>  
+      </SectionContainer>
+
 
       <SectionContainer>
         <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"><DevStack class="size-8"/> Stack tecnologico</h2>
