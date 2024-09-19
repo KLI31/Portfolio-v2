@@ -1,0 +1,14 @@
+---
+import EducationItem from "../components/EducationItem.astro"
+import { EDUCATION } from "../const";
+---
+
+<ol class="relative">
+  {
+    EDUCATION.map((education) => (
+      <li class="">
+        <EducationItem {...education} />
+      </li>
+    ))
+  }
+</ol>
