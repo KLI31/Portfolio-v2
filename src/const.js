@@ -126,7 +126,7 @@ export const EDUCATION = [
     degree: "Ingeniería de Sistemas",
     date: "Ene 2020 - Actualidad",
     description:
-      "Actualmente cursando el 8° semestre de la carrera de Ingeniería de Sistemas en la Universidad de Córdoba. Enfocado en el desarrollo de software. Activo en la comunidad universitaria y participante en proyectos de investigación.",
+      "Actualmente cursando el 9° semestre de la carrera de Ingeniería de Sistemas en la Universidad de Córdoba. Enfocado en el desarrollo de software. Activo en la comunidad universitaria y participante en proyectos de investigación.",
   },
   {
     college: "PeakU",
