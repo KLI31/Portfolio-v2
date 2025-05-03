@@ -58,6 +58,11 @@ export const TAGS = {
     class: "bg-[#5C4F00]",
     icon: JavaScript,
   },
+  ReactNative: {
+    name: "React Native",
+    class: "bg-blue-900",
+    icon: react,
+  },
 };
 
 export const PROJECTS = [
@@ -79,6 +84,14 @@ export const PROJECTS = [
     link: "https://headphone-shop-seven.vercel.app/",
     tags: [TAGS.Html, TAGS.Css, TAGS.JavaScript],
   },
+  {
+    name: "Prueba tecnica desarrollador frontend y  mobile",
+    description:
+      "Prueba tecnica para el cargo como desarrollador mobile y frontend app de noticias y pagina de tareas",
+    image: "/proyect3.webp",
+    github: "https://github.com/KLI31/PruebaTecnica-Fox-Analytics.git",
+    tags: [TAGS.React, TAGS.ReactNative, TAGS.Tailwind, TAGS.JavaScript],
+  },
 ];
 
 export const EXPERIENCIE = [
@@ -91,7 +104,7 @@ export const EXPERIENCIE = [
     link: "/Carta.pdf",
   },
   {
-    date: "Enero 2023 - Septiembre-2023",
+    date: "Enero 2023 - Octubre-2023",
     title: "Desarrollador Frontend mobile",
     company: "Freelancer",
     description:
