@@ -88,7 +88,7 @@ export const PROJECTS = [
     name: "Prueba tecnica desarrollador frontend y  mobile",
     description:
       "Prueba tecnica para el cargo como desarrollador mobile y frontend app de noticias y pagina de tareas",
-    image: "/proyect3.webp",
+    image: "/project3.webp",
     github: "https://github.com/KLI31/PruebaTecnica-Fox-Analytics.git",
     tags: [TAGS.React, TAGS.ReactNative, TAGS.Tailwind, TAGS.JavaScript],
   },
