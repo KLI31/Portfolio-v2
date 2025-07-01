@@ -16,6 +16,15 @@ import Gitlab from "./icons/Gitlab.astro";
 import Astro from "./icons/Astro.astro";
 import MaterialUI from "./icons/MaterialUI.astro";
 import MySql from "./icons/MySql.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Next from "./icons/Next.astro";
+import Nest from "./icons/Nest.astro";
+import Prisma from "./icons/Prisma.astro";
+import PostgreSql from "./icons/PostgreSql.astro";
+import Neon from "./icons/Neon.astro";
+import Stripe from "./icons/Stripe.astro";
+import Docker from "./icons/Docker.astro";
+import Expo from "./icons/Expo.astro";
 
 export const TAGS = {
   React: {
@@ -63,6 +72,41 @@ export const TAGS = {
     class: "bg-blue-900",
     icon: react,
   },
+  TypeScript: {
+    name: "TypeScript",
+    class: "bg-[#007ACC]",
+    icon: TypeScript,
+  },
+  Next: {
+    name: "Next.js",
+    class: "bg-[#000000]",
+    icon: Next,
+  },
+  Nest: {
+    name: "Nest.js",
+    class: "bg-[#E0234E]",
+    icon: Nest,
+  },
+  Prisma: {
+    name: "Prisma",
+    class: "bg-[#2D3748]",
+    icon: Prisma,
+  },
+  PostgreSql: {
+    name: "PostgreSQL",
+    class: "bg-[#336791]",
+    icon: PostgreSql,
+  },
+  Neon: {
+    name: "Neon",
+    class: "bg-[#000000]",
+    icon: Neon,
+  },
+  Stripe: {
+    name: "Stripe",
+    class: "bg-[#6772E5]",
+    icon: Stripe,
+  },
 };
 
 export const PROJECTS = [
@@ -70,7 +114,7 @@ export const PROJECTS = [
     name: "InMonteriaHouse",
     description:
       "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase",
-    link: "https://inmonteriahouse.onrender.com",
+    link: "https://inmonteriahose.onrender.com/",
     image: "/project1.webp",
     github: "https://github.com/KLI31/inMonteriaHouse",
     tags: [TAGS.React, TAGS.Node, TAGS.Tailwind, TAGS.Firebase, TAGS.MongoDB],
@@ -91,6 +135,23 @@ export const PROJECTS = [
     image: "/project3.webp",
     github: "https://github.com/KLI31/PruebaTecnica-Fox-Analytics.git",
     tags: [TAGS.React, TAGS.ReactNative, TAGS.Tailwind, TAGS.JavaScript],
+  },
+  {
+    name: "KristCar",
+    description:
+      "Kriscar es un rentacar que permite a los usuarios alquilar vehículos de manera sencilla y rápida",
+    image: "/project4.webp",
+    github: "https://github.com/KLI31/KristCar-Rental",
+    link: "https://krist-car.vercel.app/",
+    tags: [
+      TAGS.React,
+      TAGS.Tailwind,
+      TAGS.TypeScript,
+      TAGS.Next,
+      TAGS.Neon,
+      TAGS.Stripe,
+      TAGS.Prisma,
+    ],
   },
 ];
 
@@ -244,5 +305,50 @@ export const STACK = [
     name: "MySql",
     color: "#00758F",
     icon: MySql,
+  },
+  {
+    name: "TypeScript",
+    color: "#007ACC",
+    icon: TypeScript,
+  },
+  {
+    name: "Next.js",
+    color: "#000000",
+    icon: Next,
+  },
+  {
+    name: "Nest.js",
+    color: "#E0234E",
+    icon: Nest,
+  },
+  {
+    name: "Prisma",
+    color: "#2D3748",
+    icon: Prisma,
+  },
+  {
+    name: "PostgreSQL",
+    color: "#336791",
+    icon: PostgreSql,
+  },
+  {
+    name: "Neon",
+    color: "#000000",
+    icon: Neon,
+  },
+  {
+    name: "Stripe",
+    color: "#6772E5",
+    icon: Stripe,
+  },
+  {
+    name: "Docker",
+    color: "#008fe2",
+    icon: Docker,
+  },
+  {
+    name: "Expo",
+    color: "#000020",
+    icon: Expo,
   },
 ];
