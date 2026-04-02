@@ -1,13 +1,30 @@
 ---
-import ExperienceItem from "../components/ExperienceItem.astro"
-import { EXPERIENCIE } from "../const";
+import ExperienceItem from "../components/ExperienceItem.astro";
+
+interface Item {
+  title: string;
+  company: string;
+  description: string;
+  link?: string;
+  date: string;
+}
+
+interface Props {
+  items: Item[];
+  recommendationLetter: string;
+}
+
+const { items, recommendationLetter } = Astro.props;
 ---
 
 <ol class="relative">
   {
-    EXPERIENCIE.map((experiencie) => (
+    items.map((experiencie) => (
       <li class="">
-        <ExperienceItem {...experiencie} />
+        <ExperienceItem
+          {...experiencie}
+          recommendationLetter={recommendationLetter}
+        />
       </li>
     ))
   }

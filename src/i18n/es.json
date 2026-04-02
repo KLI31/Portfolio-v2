@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Luis David Rambao | Desarrollador Frontend",
+    "description": "Contrata a Luis para crear tus aplicaciones web o móvil. Desarrollador frontend. Caracterizado por crear aplicaciones únicas."
+  },
+  "nav": {
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "education": "Estudios",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "langSwitcher": {
+    "buttonAria": "Seleccionar idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "sections": {
+    "experience": "Experiencia laboral",
+    "projects": "Mis proyectos",
+    "education": "Estudios",
+    "stack": "Stack tecnológico",
+    "about": "Sobre mí"
+  },
+  "hero": {
+    "greeting": "Hey, soy Luis David",
+    "intro": "Más de 2 años de experiencia. <strong>Estudiante de Ingeniería en Sistemas</strong> y <strong>Desarrollador Full Stack</strong>, especializado en construir <strong>plataformas empresariales</strong>, <strong>sistemas educativos</strong> y <strong>aplicaciones móviles escalables</strong>.",
+    "location": "Montería, Colombia",
+    "available": "Disponible para trabajar",
+    "downloadCv": "Descargar CV",
+    "profileImageAlt": "Imagen de Luis David",
+    "githubAria": "Enlace a GitHub",
+    "linkedinAria": "Enlace a LinkedIn"
+  },
+  "footer": {
+    "madeWith": "Hecho con ❤️ inspirado en el portfolio de midudev",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "experience": {
+    "recommendationLetter": "Carta de recomendación",
+    "items": [
+      {
+        "date": "Diciembre 2025 - Marzo 2026",
+        "title": "Desarrollador Full Stack",
+        "company": "CIFRA IT",
+        "description": "Construí desde cero el frontend de Cifra-360, un CRM empresarial con más de 10 módulos y arquitectura de microservicios. También desarrollé Cifra-Flow, una herramienta interna de gestión de tareas adoptada por todo el equipo, y Cifra-Automate, un módulo de automatizaciones conectado a n8n vía webhooks. Optimicé el rendimiento de las plataformas oficiales reduciendo los tiempos de carga de 12s a 5s."
+      },
+      {
+        "date": "Febrero 2025 - Noviembre 2025",
+        "title": "Desarrollador Full Stack",
+        "company": "Rocket Launch",
+        "description": "Automatizé por completo el proceso de despliegue con CI/CD usando GitHub Actions, Docker y Makefiles, pasando de 30 minutos a menos de 3. Construí Apollo, una plataforma propia de clases en vivo con SDK de video avanzado, y un LMS completo en PHP con clases grabadas, calificaciones y certificados. Gestioné infraestructura en AWS y escalé un CRM interno con más de 7 microservicios."
+      },
+      {
+        "date": "Abril 2024 - Junio 2024",
+        "title": "Desarrollador Frontend (Pasantía)",
+        "company": "Coinsenda",
+        "description": "Mi primera experiencia profesional en una fintech de criptomonedas. Construí interfaces con React.js siguiendo Atomic Design, manejé el estado global con Redux y colaboré con el equipo de backend en la integración de servicios. Aquí aprendí a escribir código pensando en escalabilidad desde el primer día."
+      },
+      {
+        "date": "Enero 2023 - Octubre 2023",
+        "title": "Desarrollador Frontend Mobile",
+        "company": "Freelancer",
+        "description": "Desarrollé una aplicación móvil completa con React Native para una empresa privada, liderando todas las etapas desde el diseño hasta el despliegue final."
+      },
+      {
+        "date": "Febrero 2022 - Noviembre 2022",
+        "title": "Desarrollador Frontend",
+        "company": "Freelancer",
+        "description": "Primeros proyectos reales construyendo interfaces web con React y JavaScript para clientes, mejorando la conversión de usuarios hasta un 30%."
+      }
+    ]
+  },
+  "projects": {
+    "code": "Código",
+    "goToLink": "Ir al enlace",
+    "items": [
+      {
+        "name": "InMonteriaHouse",
+        "emoji": "🏠",
+        "summary": "Plataforma de alquileres con MERN y Firebase para ciudad y propietarios.",
+        "description": "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase."
+      },
+
+      {
+        "name": "KristCar",
+        "emoji": "🚗",
+        "summary": "Rentacar con Next.js, pagos Stripe y base de datos con Prisma.",
+        "description": "KristCar es un rentacar que permite a los usuarios alquilar vehículos de manera sencilla y rápida."
+      }
+    ]
+  },
+  "education": {
+    "items": [
+      {
+        "college": "Universidad de Córdoba",
+        "degree": "Ingeniería de Sistemas",
+        "date": "Ene 2020 - Actualidad",
+        "description": "Actualmente cursando el 9.º semestre de la carrera de Ingeniería de Sistemas en la Universidad de Córdoba. Enfocado en el desarrollo de software. Activo en la comunidad universitaria y participante en proyectos de investigación."
+      },
+      {
+        "college": "PeakU",
+        "degree": "Bootcamp desarrollador fullstack",
+        "date": "Ago 2023 - Jun 2024",
+        "description": "Bootcamp intensivo de desarrollo web fullstack. Adquirí conocimientos en tecnologías frontend y backend, así como habilidades de trabajo en equipo y resolución de problemas. Desarrollé proyectos reales y adquirí experiencia en el mundo laboral."
+      },
+      {
+        "college": "Universidad Nacional de Colombia",
+        "degree": "Diplomado en Desarrollo Web",
+        "date": "Ene 2022 - Dic 2022",
+        "description": "Diplomado en Desarrollo Web con énfasis en tecnologías frontend y backend. Adquirí conocimientos en HTML, CSS, JavaScript, Python, Git y metodologías ágiles."
+      },
+      {
+        "college": "Evolve your English",
+        "degree": "Curso de inglés",
+        "date": "Feb 2021 - Feb 2022",
+        "description": "Curso de inglés avanzado en la academia Evolve your English. Adquirí habilidades de comunicación y comprensión en el idioma, así como conocimientos en gramática y vocabulario."
+      },
+      {
+        "college": "Smart English Academy",
+        "degree": "Curso de inglés",
+        "date": "2025 - Actualidad",
+        "description": "Curso de inglés intermedio enfocado en comunicación profesional y técnica, con énfasis en vocabulario del entorno laboral y tecnológico."
+      }
+    ]
+  },
+  "about": {
+    "imageAlt": "Luis David",
+    "p1": "Hola, soy Luis David. Empecé a programar a los 17 años porque descubrí algo que pocos encuentran tan joven: que <strong>con código puedes mejorar la vida de las personas</strong>. No solo resolver un bug, sino ver cómo <strong>una idea tuya se convierte en algo que alguien usa todos los días</strong> y le hace la vida más fácil.",
+    "p2": "Me apasiona el <strong>frontend</strong> porque es donde mi idea cobra vida visualmente, pero también el <strong>backend</strong> porque es donde vive la lógica que la sostiene. Soy <strong>Desarrollador Full Stack</strong> y eso me permite ver el producto completo, desde la experiencia del usuario hasta la arquitectura que lo hace posible.",
+    "p3": "Con el tiempo, programar me ha llevado a cumplir metas que antes solo imaginaba: <strong>ganar competencias, liderar proyectos reales y construir plataformas que usan personas reales</strong>. Cada logro me confirma que estoy en el camino correcto.",
+    "p4": "Hoy tengo <strong>más de 2 años de experiencia</strong> construyendo productos reales y sigo con las mismas ganas del primer día. Mi meta es convertirme en <strong>un gran líder técnico</strong> que inspire equipos y construya soluciones que importen."
+  },
+  "theme": {
+    "toggleLabel": "Elige el tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  }
+}

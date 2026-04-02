@@ -1,43 +1,58 @@
 ---
-const personImgAlt = "Luis David icon";
-import Circle from "../components/Circle.astro";
+import type es from "../i18n/es.json";
+import Circle from "./Circle.astro";
 import Github from "../icons/Github.astro";
 import LinkedIn from "../icons/LinkedIn.astro";
 import Location from "../icons/Location.astro";
 
 import "../style.css";
+
+interface Props {
+  hero: typeof es.hero;
+}
+
+const { hero } = Astro.props;
 ---
 
 <div class="max-w-3xl ">
-  <section class="flex flex-col-reverse items-center justify-between gap-2 md:flex-row">
+  <section
+    class="flex flex-col-reverse items-center justify-between gap-2 md:flex-row"
+  >
     <div class="w-full md:w-3/7">
       <h1
         class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
       >
-        Hey, soy Luis David
+        {hero.greeting}
       </h1>
       <p
         class="mt-4 mb-6 text-xl text-gray-800 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-      >
-        1 año de experiencia. <strong>Estudiante de Ingeniería en Sistemas</strong> y <strong>Desarrollador Frontend</strong> dedicado a crear interfaces web creativas y aplicaciones inspiradoras.
-      </p>
+        set:html={hero.intro}
+      />
       <div class="flex items-center">
-        <p class="text-3xl"><span><Location /></span> Montería, Colombia</p>
+        <p class="text-3xl">
+          <span><Location /></span>
+          {hero.location}
+        </p>
       </div>
       <div class="flex items-center">
-        <p class=""><Circle />Disponible para trabajar</p>
+        <p class=""><Circle />{hero.available}</p>
       </div>
       <div class="mt-5 flex items-center gap-7 social-links">
-        <a href="/Curriculum.pdf" download
-          class="relative inline-flex items-center px-5 py-2.5 rounded-full text-white font-medium bg-gradient-to-r from-yellow-400 to-yellow-400 shadow-md transition-all duration-300 ease-in hover:bg-gradient-to-r dark:from-gray-700 dark:to-gray-800 overflow-hidden group">
-          Descargar CV
-          <span class="absolute inset-0 border-2 border-transparent rounded-full group-hover:border-yellow-500 transition-all duration-300 ease-in-out dark:group-hover:border-white"></span>
+        <a
+          href="/Curriculum.pdf"
+          download
+          class="relative inline-flex items-center px-5 py-2.5 rounded-full text-white font-medium bg-gradient-to-r from-yellow-400 to-yellow-400 shadow-md transition-all duration-300 ease-in hover:bg-gradient-to-r dark:from-gray-700 dark:to-gray-800 overflow-hidden group"
+        >
+          {hero.downloadCv}
+          <span
+            class="absolute inset-0 border-2 border-transparent rounded-full group-hover:border-yellow-500 transition-all duration-300 ease-in-out dark:group-hover:border-white"
+          ></span>
         </a>
         <a
           href="https://github.com/KLI31"
           target="_blank"
           class="relative group block dark:shadow-md"
-          aria-label="Github link"
+          aria-label={hero.githubAria}
         >
           <Github width="35px" class="text-black dark:text-white" />
         </a>
@@ -45,7 +60,7 @@ import "../style.css";
           href="https://www.linkedin.com/in/luisrambao/"
           target="_blank"
           class="relative group block dark:shadow-md"
-          aria-label="LinkedIn link"
+          aria-label={hero.linkedinAria}
         >
           <LinkedIn width="35px" class="text-blue-500 dark:text-white" />
         </a>
@@ -60,7 +75,7 @@ import "../style.css";
         />
         <img
           src="/icon.webp"
-          alt="Imagen de Luis David"
+          alt={hero.profileImageAlt}
           class="profile-img rounded-full h-30 w-30 object-cover"
           loading="lazy"
         />

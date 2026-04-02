@@ -1,29 +1,35 @@
 ---
- const personalImageAlt = "Luis David"
- import "../style.css"
+import type es from "../i18n/es.json";
+import "../style.css";
+
+interface Props {
+  about: typeof es.about;
+}
+
+const { about } = Astro.props;
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+>
   <div
     class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
   >
-    <p>
-      Hola, me llamo Luis David un placer por estar por aqui. Empecé en la
-      programación cuando tenía 17 años. Desde entonces disfruto creando experiencias web y moviles para los usuarios</strong
-      >.
-    </p>
+    <p set:html={about.p1} />
 
-    <p>
-      Entre mis exitos<strong > he liderado proyectos de desarrollo importantes</strong en mi universidad
-      >. gracias a esto he podido manejar sin mayor dificultad las tecnologias de desarrollo web y movil.
-    </p>
+    <p set:html={about.p2} />
 
-    <p>
-      Como desarrollador frontend, <strong
-        >cuento con experiencia desarrollando aplicaciones web y moviles tanto 
-        freelance como de manera autonoma</strong
-      >. Mi objetivo como desarrollador es crear aplicaciones unicas e innovadoras mejorando la experiencia de usuario siendo más accesibles y fáciles de usar.
-    </p>
+    <p set:html={about.p3} />
+
+    <p set:html={about.p4} />
   </div>
-        <img width="200" height="200" src="/me.webp" alt={personalImageAlt} loading="lazy" class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+  <img
+    width="200"
+    height="200"
+    src="/me.webp"
+    alt={about.imageAlt}
+    loading="lazy"
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 "
+    style="object-position: 50% 50%"
+  />
 </article>

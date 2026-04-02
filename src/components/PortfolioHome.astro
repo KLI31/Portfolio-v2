@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "./Hero.astro";
+import SectionContainer from "./SectionContainer.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import Experience from "./Experiencie.astro";
+import ProyectItem from "./ProyectItem.astro";
+import DevStack from "../icons/DevStack.astro";
+import CodeIcon from "../icons/CodeIcon.astro";
+import StackList from "./StackList.astro";
+import AboutMe from "./AboutMe.astro";
+import User from "../icons/User.astro";
+import Book from "../icons/Book.astro";
+import Education from "./Education.astro";
+import es from "../i18n/es.json";
+import {
+  PROJECTS_BASE,
+  TAGS,
+  EXPERIENCE_LINKS,
+  EDUCATION_IMAGES,
+} from "../const";
+
+interface Props {
+  locale: "es" | "en";
+  t: typeof es;
+}
+
+const { locale, t } = Astro.props;
+
+const projects = PROJECTS_BASE.map((base, i) => ({
+  ...base,
+  name: t.projects.items[i].name,
+  emoji: t.projects.items[i].emoji,
+  summary: t.projects.items[i].summary,
+  tags: base.tags.map((key) => TAGS[key]),
+}));
+
+const experienceItems = t.experience.items.map((item, i) => ({
+  ...item,
+  link: EXPERIENCE_LINKS[i],
+}));
+
+const educationItems = t.education.items.map((item, i) => ({
+  ...item,
+  image: EDUCATION_IMAGES[i],
+}));
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  lang={locale}
+  t={t}
+  locale={locale}
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero hero={t.hero} />
+    </SectionContainer>
+    <div class="space-y-20">
+      <SectionContainer id="experiencia" class="mx-auto">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <Briefcase class="size-8" />
+          {t.sections.experience}
+        </h2>
+        <Experience
+          items={experienceItems}
+          recommendationLetter={t.experience.recommendationLetter}
+        />
+      </SectionContainer>
+
+      <SectionContainer id="proyectos">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <CodeIcon class="size-8" />
+          {t.sections.projects}
+        </h2>
+
+        <ProyectItem
+          projects={projects}
+          codeLabel={t.projects.code}
+          goToLinkLabel={t.projects.goToLink}
+        />
+      </SectionContainer>
+
+      <SectionContainer id="estudios">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <Book class="size-8" />
+          {t.sections.education}
+        </h2>
+        <Education items={educationItems} />
+      </SectionContainer>
+
+      <SectionContainer>
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <DevStack class="size-8" />
+          {t.sections.stack}
+        </h2>
+        <StackList />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <User class="size-8" />
+          {t.sections.about}
+        </h2>
+        <AboutMe about={t.about} />
+      </SectionContainer>
+    </div>
+  </main>
+</Layout>

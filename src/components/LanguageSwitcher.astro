@@ -1,0 +1,156 @@
+---
+import Globe from "../icons/Globe.astro";
+import es from "../i18n/es.json";
+
+interface Props {
+  locale: "es" | "en";
+  t: typeof es;
+  /** Menú hacia abajo (header) o hacia arriba (footer) */
+  menuPlacement?: "bottom" | "top";
+}
+
+const { locale, t, menuPlacement = "bottom" } = Astro.props;
+
+const esHref = "/";
+const enHref = "/en/";
+const labels = t.langSwitcher;
+---
+
+<div class="relative shrink-0" data-lang-switcher-root>
+  <button
+    type="button"
+    class="lang-switcher-btn flex h-9 w-9 items-center justify-center rounded-full text-gray-600 transition hover:text-yellow-600 dark:text-gray-300 dark:hover:text-yellow-400"
+    aria-label={labels.buttonAria}
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <Globe class="size-[1.15rem]" />
+  </button>
+  <div
+    class:list={[
+      "lang-switcher-menu absolute end-0 z-50 hidden min-w-[9.5rem] rounded-lg border border-gray-200/90 bg-white/95 py-1 text-sm shadow-lg backdrop-blur-md dark:border-gray-600/50 dark:bg-neutral-900/95",
+      menuPlacement === "top" ? "bottom-full mb-1" : "top-full mt-1",
+    ]}
+    role="menu"
+  >
+    <a
+      href={esHref}
+      role="menuitem"
+      class:list={[
+        "flex items-center gap-2 px-3 py-2 transition",
+        locale === "es"
+          ? "bg-yellow-500/15 font-medium text-yellow-700 dark:text-yellow-400"
+          : "text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/80",
+      ]}
+      aria-current={locale === "es" ? "page" : undefined}
+    >
+      <span class="w-5 text-center text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400"
+        >ES</span
+      >
+      <span>{labels.es}</span>
+    </a>
+    <a
+      href={enHref}
+      role="menuitem"
+      class:list={[
+        "flex items-center gap-2 px-3 py-2 transition",
+        locale === "en"
+          ? "bg-yellow-500/15 font-medium text-yellow-700 dark:text-yellow-400"
+          : "text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/80",
+      ]}
+      aria-current={locale === "en" ? "page" : undefined}
+    >
+      <span class="w-5 text-center text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400"
+        >EN</span
+      >
+      <span>{labels.en}</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .lang-switcher-menu.is-open {
+    display: block;
+    animation: lang-menu-in 0.12s ease-out;
+  }
+
+  @keyframes lang-menu-in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-switcher-menu.is-open {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  function initLangSwitchers() {
+    const cleanups: (() => void)[] = [];
+
+    document.querySelectorAll("[data-lang-switcher-root]").forEach((root) => {
+      const btn = root.querySelector<HTMLButtonElement>(".lang-switcher-btn");
+      const menu = root.querySelector<HTMLElement>(".lang-switcher-menu");
+      if (!btn || !menu) return;
+
+      const ac = new AbortController();
+      const { signal } = ac;
+
+      const close = () => {
+        menu.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+      };
+
+      const open = () => {
+        menu.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+      };
+
+      btn.addEventListener(
+        "click",
+        (e) => {
+          e.stopPropagation();
+          document.querySelectorAll(".lang-switcher-menu.is-open").forEach((m) => {
+            if (m !== menu) m.classList.remove("is-open");
+          });
+          document.querySelectorAll(".lang-switcher-btn").forEach((b) => {
+            if (b !== btn) b.setAttribute("aria-expanded", "false");
+          });
+          if (menu.classList.contains("is-open")) close();
+          else open();
+        },
+        { signal },
+      );
+
+      document.addEventListener(
+        "click",
+        (e) => {
+          if (!root.contains(e.target as Node)) close();
+        },
+        { signal },
+      );
+
+      cleanups.push(() => {
+        ac.abort();
+        close();
+      });
+    });
+
+    return () => cleanups.forEach((fn) => fn());
+  }
+
+  let dispose: (() => void) | undefined;
+
+  document.addEventListener("astro:page-load", () => {
+    dispose?.();
+    dispose = initLangSwitchers();
+  });
+</script>

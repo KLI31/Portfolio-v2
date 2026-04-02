@@ -1,50 +1,106 @@
 ---
-import { PROJECTS } from "../const.js";
-import LinkButton from "./LinkButton.astro";
 import Github from "../icons/Github.astro";
-import Link from "../icons/Link.astro";
+import ExternalLink from "../icons/ExternalLink.astro";
+
+interface Project {
+  name: string;
+  emoji: string;
+  summary: string;
+  link?: string;
+  github?: string;
+  image: string;
+  tags: { name: string; class: string; icon: any }[];
+}
+
+interface Props {
+  projects: Project[];
+  codeLabel: string;
+  goToLinkLabel: string;
+}
+
+const { projects, codeLabel, goToLinkLabel } = Astro.props;
 ---
 
-<div
-  class="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+<ul
+  class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
+  role="list"
 >
-  {PROJECTS.map(({ name, description, link, github, image, tags }) => (
-    <div class="rounded-lg overflow-hidden ">
-      <img
-        src={image}
-        alt={name}
-        class="object-cover w-full h-50 transition hover:scale-105 duration-500 sm:h-58 md:scale-110 md:group-hover:scale-105"
-        loading="lazy"
-      />
-      <div class="pt-7">
-        <h3 class="text-xl font-semibold text-yellow-500">{name}</h3>
-        <p class="text-gray-800 dark:text-gray-300 mt-1">{description}</p>
-        <ul class="flex flex-wrap mt-2 gap-x-2 gap-y-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`inline-flex items-center select-none gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium ${tag.class} text-gray-100 dark:text-gray-200 transition-all border border-transparent dark:border-gray-800`}
+  {
+    projects.map(({ name, emoji, summary, link, github, image, tags }) => (
+      <li>
+        <article
+          class="group/project flex h-full flex-col rounded-2xl bg-white/70 p-5 shadow-sm ring-1 ring-black/[0.06] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-black/5 hover:ring-black/[0.08] motion-reduce:hover:translate-y-0 dark:bg-neutral-950/60 dark:ring-white/[0.08] dark:hover:bg-neutral-950 dark:hover:shadow-black/40 dark:hover:ring-yellow-500/20 md:p-6"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex min-w-0 flex-1 items-start gap-3">
+              <div
+                class="size-10 shrink-0 overflow-hidden rounded-xl bg-gray-100 ring-1 ring-black/[0.04] transition duration-300 group-hover/project:ring-2 group-hover/project:ring-yellow-500/30 dark:bg-neutral-900 dark:ring-white/10"
               >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <footer class="flex items-center mt-4 gap-x-2">
-        {github && (
-          <LinkButton href={github}>
-            <Github class="size-6" /> Codigo
-          </LinkButton>
-        )}
-        {link && (
-          <LinkButton href={link}>
-            <Link class="size-4" />
-            Ir al enlace
-          </LinkButton>
-        )}
-      </footer>
-    </div>
-  ))}
-</div>
+                <img
+                  src={image}
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="size-full object-cover transition duration-300 group-hover/project:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="min-w-0 flex-1 pt-0.5">
+                {link ? (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex max-w-full items-center gap-1.5 font-semibold tracking-tight text-gray-900 transition hover:text-yellow-600 dark:text-white dark:hover:text-yellow-400"
+                    aria-label={`${name} — ${goToLinkLabel}`}
+                  >
+                    <span class="truncate">{name}</span>
+                    <ExternalLink class="size-3.5 shrink-0 opacity-50 transition group-hover/project:opacity-100" />
+                  </a>
+                ) : (
+                  <h3 class="truncate font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {name}
+                  </h3>
+                )}
+              </div>
+            </div>
+            {github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="shrink-0 rounded-lg p-2 text-gray-500 transition hover:bg-black/[0.04] hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-white"
+                aria-label={`${name} — ${codeLabel}`}
+              >
+                <Github class="size-5" />
+              </a>
+            )}
+          </div>
+
+          <p
+            class="mt-3.5 text-pretty text-sm leading-relaxed text-gray-600 dark:text-gray-400"
+          >
+            <span class="mr-1.5 inline-block" aria-hidden="true">{emoji}</span>
+            {summary}
+          </p>
+
+          <ul class="mt-auto pt-4 flex flex-wrap gap-2" aria-label="Stack">
+            {tags.map((tag) => {
+              const Icon = tag.icon;
+              return (
+                <li>
+                  <span
+                    class="inline-flex items-center gap-1.5 rounded-full border border-gray-200/90 bg-gray-50/80 px-2.5 py-1 text-xs font-medium text-gray-700 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300"
+                  >
+                    <Icon class="size-3.5 shrink-0 opacity-90" />
+                    {tag.name}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </article>
+      </li>
+    ))
+  }
+</ul>

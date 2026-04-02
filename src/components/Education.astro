@@ -1,11 +1,24 @@
 ---
-import EducationItem from "../components/EducationItem.astro"
-import { EDUCATION } from "../const";
+import EducationItem from "../components/EducationItem.astro";
+
+interface Item {
+  college: string;
+  image: string;
+  degree: string;
+  date: string;
+  description: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
 ---
 
 <ol class="relative">
   {
-    EDUCATION.map((education) => (
+    items.map((education) => (
       <li class="">
         <EducationItem {...education} />
       </li>

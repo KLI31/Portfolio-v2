@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Luis David Rambao | Frontend Developer",
+    "description": "Hire Luis to build your web or mobile applications. Frontend developer focused on crafting unique, polished experiences."
+  },
+  "nav": {
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "about": "About me",
+    "contact": "Contact"
+  },
+  "langSwitcher": {
+    "buttonAria": "Choose language",
+    "es": "Español",
+    "en": "English"
+  },
+  "sections": {
+    "experience": "Work experience",
+    "projects": "My projects",
+    "education": "Education",
+    "stack": "Tech stack",
+    "about": "About me"
+  },
+  "hero": {
+    "greeting": "Hey, I'm Luis David",
+    "intro": "2+ years of experience. <strong>Systems Engineering student</strong> and <strong>Full Stack Developer</strong>, specializing in <strong>enterprise platforms</strong>, <strong>educational systems</strong>, and <strong>scalable mobile applications</strong>.",
+    "location": "Montería, Colombia",
+    "available": "Open to work",
+    "downloadCv": "Download CV",
+    "profileImageAlt": "Photo of Luis David",
+    "githubAria": "GitHub profile link",
+    "linkedinAria": "LinkedIn profile link"
+  },
+  "footer": {
+    "madeWith": "Made with ❤️ inspired by midudev's portfolio",
+    "about": "About me",
+    "contact": "Contact"
+  },
+  "experience": {
+    "recommendationLetter": "Recommendation letter",
+    "items": [
+      {
+        "date": "December 2025 - March 2026",
+        "title": "Full Stack Developer",
+        "company": "CIFRA IT",
+        "description": "I built the Cifra-360 CRM frontend from scratch—10+ modules on a microservices architecture. I also shipped Cifra-Flow, an internal task-management tool adopted across the team, and Cifra-Automate, an automations module wired to n8n via webhooks. I improved performance on the main platforms, cutting load times from 12s to 5s."
+      },
+      {
+        "date": "February 2025 - November 2025",
+        "title": "Full Stack Developer",
+        "company": "Rocket Launch",
+        "description": "I fully automated deployments with CI/CD using GitHub Actions, Docker, and Makefiles, going from 30 minutes to under 3. I built Apollo, our in-house live-class platform with an advanced video SDK, and a full PHP LMS with recorded classes, grading, and certificates. I managed AWS infrastructure and scaled an internal CRM with 7+ microservices."
+      },
+      {
+        "date": "April 2024 - June 2024",
+        "title": "Frontend Developer (Internship)",
+        "company": "Coinsenda",
+        "description": "My first professional role at a crypto fintech. I built React.js interfaces with Atomic Design, managed global state with Redux, and partnered with backend on service integration. I learned to write code with scalability in mind from day one."
+      },
+      {
+        "date": "January 2023 - October 2023",
+        "title": "Mobile Frontend Developer",
+        "company": "Freelancer",
+        "description": "I delivered a complete React Native app for a private company, owning every phase from design through final deployment."
+      },
+      {
+        "date": "February 2022 - November 2022",
+        "title": "Frontend Developer",
+        "company": "Freelancer",
+        "description": "Early client work building web UIs with React and JavaScript, improving user conversion by up to 30%."
+      }
+    ]
+  },
+  "projects": {
+    "code": "Code",
+    "goToLink": "Visit link",
+    "items": [
+      {
+        "name": "InMonteriaHouse",
+        "emoji": "🏠",
+        "summary": "Rental platform with MERN and Firebase for guests and property owners.",
+        "description": "University project to manage rentals. Users can search and book accommodation in the city; owners can list and manage properties. Built from scratch with the MERN stack and Firebase."
+      },
+
+      {
+        "name": "KristCar",
+        "emoji": "🚗",
+        "summary": "Car rental with Next.js, Stripe payments, and Prisma.",
+        "description": "KristCar is a car rental service that lets users rent vehicles quickly and easily."
+      }
+    ]
+  },
+  "education": {
+    "items": [
+      {
+        "college": "University of Córdoba",
+        "degree": "Systems Engineering",
+        "date": "Jan 2020 - Present",
+        "description": "Currently in the 9th semester of Systems Engineering at the University of Córdoba, focused on software development. Active in the university community and research projects."
+      },
+      {
+        "college": "PeakU",
+        "degree": "Full-stack developer bootcamp",
+        "date": "Aug 2023 - Jun 2024",
+        "description": "Intensive full-stack web development bootcamp. I gained frontend and backend skills, teamwork, and problem-solving through real-world projects and hands-on experience."
+      },
+      {
+        "college": "National University of Colombia",
+        "degree": "Web Development Diploma",
+        "date": "Jan 2022 - Dec 2022",
+        "description": "Web development diploma with emphasis on frontend and backend technologies, including HTML, CSS, JavaScript, Python, Git, and agile methodologies."
+      },
+      {
+        "college": "Evolve your English",
+        "degree": "English course",
+        "date": "Feb 2021 - Feb 2022",
+        "description": "Advanced English course at Evolve your English. I improved communication and comprehension, plus grammar and vocabulary."
+      },
+      {
+        "college": "Smart English Academy",
+        "degree": "English course",
+        "date": "2025 - Present",
+        "description": "Intermediate English course focused on professional and technical communication, with emphasis on workplace and technology vocabulary."
+      }
+    ]
+  },
+  "about": {
+    "imageAlt": "Luis David",
+    "p1": "Hi, I'm Luis David. I started coding at 17 because I found something few people discover so young: that <strong>with code you can improve people's lives</strong>. Not just fixing a bug, but seeing <strong>an idea of yours become something someone uses every day</strong> that makes their life easier.",
+    "p2": "I'm passionate about <strong>frontend</strong>—where my ideas take shape visually—and <strong>backend</strong>, where the logic that supports them lives. I'm a <strong>Full Stack Developer</strong>, so I can see the whole product—from user experience to the architecture that makes it possible.",
+    "p3": "Over time, programming has helped me reach goals I once only imagined: <strong>winning competitions, leading real projects, and building platforms real people rely on</strong>. Every win confirms I'm on the right path.",
+    "p4": "Today I have <strong>over two years of experience</strong> shipping real products, with the same drive as day one. My goal is to grow into <strong>a strong technical leader</strong> who inspires teams and builds solutions that matter."
+  },
+  "theme": {
+    "toggleLabel": "Choose theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

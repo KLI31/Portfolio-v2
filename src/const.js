@@ -25,6 +25,8 @@ import Neon from "./icons/Neon.astro";
 import Stripe from "./icons/Stripe.astro";
 import Docker from "./icons/Docker.astro";
 import Expo from "./icons/Expo.astro";
+import Aws from "./icons/Aws.astro";
+import N8n from "./icons/N8n.astro";
 
 export const TAGS = {
   React: {
@@ -48,7 +50,7 @@ export const TAGS = {
     icon: Firebase,
   },
   MongoDB: {
-    name: "MondoDb",
+    name: "MongoDB",
     class: "bg-[#8B4513]",
     icon: MongoDB,
   },
@@ -109,110 +111,46 @@ export const TAGS = {
   },
 };
 
-export const PROJECTS = [
+/** Rutas y metadatos por proyecto; textos en i18n */
+export const PROJECTS_BASE = [
   {
-    name: "InMonteriaHouse",
-    description:
-      "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase",
-    link: "https://inmonteriahose.onrender.com/",
     image: "/project1.webp",
+    link: "https://inmonteriahose.onrender.com/",
     github: "https://github.com/KLI31/inMonteriaHouse",
-    tags: [TAGS.React, TAGS.Node, TAGS.Tailwind, TAGS.Firebase, TAGS.MongoDB],
+    tags: ["React", "Node", "Tailwind", "Firebase", "MongoDB"],
   },
   {
-    name: "Landing Page Rstudio",
-    description:
-      "Proyecto universitario para la asignatura de desarrollo web usando metodologías ágiles. Landing page para la empresa Rstudio, desarrollado con HTML, CSS y JavaScript, desplegado en Vercel",
-    image: "/proyect2.webp",
-    github: "https://github.com/KLI31/Desarrollo-web/blob/main/index.js",
-    link: "https://headphone-shop-seven.vercel.app/",
-    tags: [TAGS.Html, TAGS.Css, TAGS.JavaScript],
-  },
-  {
-    name: "Prueba tecnica desarrollador frontend y  mobile",
-    description:
-      "Prueba tecnica para el cargo como desarrollador mobile y frontend app de noticias y pagina de tareas",
-    image: "/project3.webp",
-    github: "https://github.com/KLI31/PruebaTecnica-Fox-Analytics.git",
-    tags: [TAGS.React, TAGS.ReactNative, TAGS.Tailwind, TAGS.JavaScript],
-  },
-  {
-    name: "KristCar",
-    description:
-      "Kriscar es un rentacar que permite a los usuarios alquilar vehículos de manera sencilla y rápida",
     image: "/project4.webp",
     github: "https://github.com/KLI31/KristCar-Rental",
     link: "https://krist-car.vercel.app/",
     tags: [
-      TAGS.React,
-      TAGS.Tailwind,
-      TAGS.TypeScript,
-      TAGS.Next,
-      TAGS.Neon,
-      TAGS.Stripe,
-      TAGS.Prisma,
+      "React",
+      "Tailwind",
+      "TypeScript",
+      "Next",
+      "Neon",
+      "Stripe",
+      "Prisma",
     ],
   },
 ];
 
-export const EXPERIENCIE = [
-  {
-    date: "Marzo 2024 - Mayo 2024",
-    title: "Frontend Developer",
-    company: "Coinsenda",
-    description:
-      "Trabajé en el desarrollo y mejora de una página de criptomonedas. Durante mi práctica, contribuí a la creación de nuevas funcionalidades web y optimicé las existentes. Además, adquirí conocimientos en patrones de diseño, aplicándolos en el desarrollo de interfaces escalables y eficientes.",
-    link: "/Carta.pdf",
-  },
-  {
-    date: "Enero 2023 - Octubre-2023",
-    title: "Desarrollador Frontend mobile",
-    company: "Freelancer",
-    description:
-      "Responsable del diseño y desarrollo completo de una aplicación móvil utilizando React Native para una empresa privada. Desde la concepción de la idea hasta la implementación final, llevé a cabo todas las etapas del desarrollo, asegurando una solución robusta y funcional para el cliente.",
-  },
-  {
-    date: "Febrero 2022 - Noviembre 2022",
-    title: "Desarrollador Frontend",
-    company: "Freelancer",
-    description:
-      "Desarrollé interfaces de usuario interactivas y optimizadas para diversas plataformas utilizando tecnologías como React y JavaScript. Colaboré en proyectos de desarrollo web, asegurando una experiencia de usuario fluida y diseño responsivo, cumpliendo con los objetivos de cada proyecto y garantizando la satisfacción del cliente.",
-  },
+/** Enlace opcional a carta de recomendación por índice (mismo orden que experience.items en i18n) */
+export const EXPERIENCE_LINKS = [
+  "/CartaCifra.pdf",
+  undefined,
+  "/Carta.pdf",
+  undefined,
+  undefined,
 ];
 
-export const EDUCATION = [
-  {
-    college: "Universidad de Córdoba",
-    image: "/Unicordoba-logo.webp",
-    degree: "Ingeniería de Sistemas",
-    date: "Ene 2020 - Actualidad",
-    description:
-      "Actualmente cursando el 9° semestre de la carrera de Ingeniería de Sistemas en la Universidad de Córdoba. Enfocado en el desarrollo de software. Activo en la comunidad universitaria y participante en proyectos de investigación.",
-  },
-  {
-    college: "PeakU",
-    image: "/Logo-PeakU.webp",
-    degree: "Bootcamp desarrollador fullstack",
-    date: "Ago 2023 - Jun 2024",
-    description:
-      "Bootcamp intensivo de desarrollo web fullstack. Adquirí conocimientos en tecnologías frontend y backend, así como habilidades de trabajo en equipo y resolución de problemas. Desarrollé proyectos reales y adquirí experiencia en el mundo laboral.",
-  },
-  {
-    college: "Universidad Nacional de Colombia",
-    image: "/UNAL.webp",
-    degree: "Diplomado en Desarrollo Web",
-    date: "Ene 2022 - Dec 2022",
-    description:
-      "Diplomado en Desarrollo Web con énfasis en tecnologías frontend y backend. Adquirí conocimientos en HTML, CSS, JavaScript, Python, Git y metodologías ágiles.",
-  },
-  {
-    college: "Evolve your English",
-    image: "/Evolve-logo.webp",
-    degree: "Curso de Inglés",
-    date: "Feb 2021 - Feb 2022",
-    description:
-      "Curso de inglés avanzado en la academia Evolve your English. Adquirí habilidades de comunicación y comprensión en el idioma, así como tambien conocimientos en gramática y vocabulario.",
-  },
+/** Imágenes de instituciones; textos en i18n */
+export const EDUCATION_IMAGES = [
+  "/Unicordoba-logo.webp",
+  "/Logo-PeakU.webp",
+  "/UNAL.webp",
+  "/Evolve-logo.webp",
+  "/smart-academy.webp",
 ];
 
 export const STACK = [
@@ -348,7 +286,17 @@ export const STACK = [
   },
   {
     name: "Expo",
-    color: "#000020",
+    color: "#6366F1",
     icon: Expo,
+  },
+  {
+    name: "AWS",
+    color: "#FF9900",
+    icon: Aws,
+  },
+  {
+    name: "n8n",
+    color: "#EA4B71",
+    icon: N8n,
   },
 ];

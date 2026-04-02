@@ -3,18 +3,22 @@ import { ViewTransitions } from "astro:transitions";
 import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import es from "../i18n/es.json";
+
 interface Props {
   title: string;
-  description: string;  
+  description: string;
+  lang: string;
+  locale: "es" | "en";
+  t: typeof es;
 }
 
-const { title, description } = Astro.props;
-import "../style.css"
-
+const { title, description, lang, locale, t } = Astro.props;
+import "../style.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -23,7 +27,7 @@ import "../style.css"
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content=/icon.webp" />
+    <meta property="og:image" content="/icon.webp" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
     <title>{title}</title>
@@ -38,9 +42,9 @@ import "../style.css"
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-screen bg-gray-50 dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header />
+    <Header t={t} locale={locale} />
     <slot />
-    <Footer />
+    <Footer t={t} locale={locale} />
   </body>
 </html>
 <style is:global>

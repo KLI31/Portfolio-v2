@@ -1,5 +1,15 @@
 ---
-const currentYear = new Date().getFullYear()
+import es from "../i18n/es.json";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  t: typeof es;
+  locale: "es" | "en";
+}
+
+const { t, locale } = Astro.props;
+const currentYear = new Date().getFullYear();
+const aboutHref = locale === "en" ? "/en/#sobre-mi" : "/#sobre-mi";
 ---
 
 <footer
@@ -9,19 +19,31 @@ const currentYear = new Date().getFullYear()
     class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
-      >{currentYear} - 
-      <a href="www.linkedin.com/in/luisrambao" class="hover:underline">Luis David</a>. 
+      >{currentYear} -
+      <a
+        href="https://www.linkedin.com/in/luisrambao"
+        class="hover:underline">Luis David</a
+      >.
     </span>
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">Hecho con ❤️ inspirado en el portfolio de midudev</span>
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
+      >{t.footer.madeWith}</span
     >
-      <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+    <ul
+      class="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 mt-3 text-sm font-medium dark:text-white/90 sm:mt-0 md:justify-end"
+    >
+      <li class="flex items-center me-2 md:me-4">
+        <LanguageSwitcher locale={locale} t={t} menuPlacement="top" />
       </li>
       <li>
-        <a id="contacto" href="mailto:lrambao5432@gmail.com" class="hover:underline"
-          >Contacto</a
+        <a href={aboutHref} class="hover:underline me-4 md:me-6"
+          >{t.footer.about}</a
+        >
+      </li>
+      <li>
+        <a
+          id="contacto"
+          href="mailto:lrambao5432@gmail.com"
+          class="hover:underline">{t.footer.contact}</a
         >
       </li>
     </ul>
