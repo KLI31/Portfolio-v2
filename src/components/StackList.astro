@@ -1,17 +1,19 @@
 ---
 import { STACK } from "../const";
-import Tooltip from "./Tooltip.astro";
-import "../style.css"
 ---
 
-<section class='stacks'>
-    <ul class="flex flex-wrap">
-      {STACK.map(stack => (
-        <li class="stack "
-            style={{ '--background-dif': stack.color }} tool-tip>
-                <Tooltip  aria-hidden='true'>{stack.name}</Tooltip>
-          <stack.icon class="size-8 block object-contain"/>
-        </li>
-      ))}
-    </ul>
-  </section>
+<section>
+  <ul class="flex flex-wrap gap-3">
+    {STACK.map(stack => (
+      <li
+        class="relative group w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-200 hover:scale-105"
+        style={`background-color: ${stack.color}15; border: 1px solid ${stack.color}25;`}
+      >
+        <stack.icon class="w-6 h-6 block object-contain" style={`color: ${stack.color};`} />
+        <span class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-0.5 rounded-md text-[11px] font-medium bg-gray-900 dark:bg-zinc-100 text-white dark:text-gray-900 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 shadow-sm">
+          {stack.name}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -16,10 +16,10 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<ol class="relative">
+<ol class="relative space-y-6">
   {
-    items.map((education) => (
-      <li class="">
+    items.map((education, index) => (
+      <li class={index < items.length - 1 ? "pb-6 border-b border-gray-200/60 dark:border-gray-800/40" : ""}>
         <EducationItem {...education} />
       </li>
     ))

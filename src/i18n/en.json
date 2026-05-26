@@ -24,13 +24,26 @@
   },
   "hero": {
     "greeting": "Hey, I'm Luis David",
+    "fullName": "Luis David Rambao",
     "intro": "2+ years of experience. <strong>Systems Engineering student</strong> and <strong>Full Stack Developer</strong>, specializing in <strong>enterprise platforms</strong>, <strong>educational systems</strong>, and <strong>scalable mobile applications</strong>.",
     "location": "Montería, Colombia",
     "available": "Open to work",
     "downloadCv": "Download CV",
     "profileImageAlt": "Photo of Luis David",
     "githubAria": "GitHub profile link",
-    "linkedinAria": "LinkedIn profile link"
+    "linkedinAria": "LinkedIn profile link",
+    "emailAria": "Send email",
+    "locationLabel": "LOCATION",
+    "emailLabel": "EMAIL",
+    "pronounsLabel": "PRONOUNS",
+    "email": "lrambao5432@gmail.com",
+    "pronouns": "he / él",
+    "rotatingPhrases": [
+      "Full Stack Developer",
+      "Engineering Student",
+      "Open to Work",
+      "Clean code enthusiast"
+    ]
   },
   "footer": {
     "madeWith": "Made with ❤️ inspired by midudev's portfolio",
@@ -41,34 +54,59 @@
     "recommendationLetter": "Recommendation letter",
     "items": [
       {
-        "date": "December 2025 - March 2026",
+        "date": "December 2025 — March 2026",
         "title": "Full Stack Developer",
         "company": "CIFRA IT",
-        "description": "I built the Cifra-360 CRM frontend from scratch—10+ modules on a microservices architecture. I also shipped Cifra-Flow, an internal task-management tool adopted across the team, and Cifra-Automate, an automations module wired to n8n via webhooks. I improved performance on the main platforms, cutting load times from 12s to 5s."
+        "location": "Montería, Colombia · Full-Time",
+        "description": "Built the Cifra-360 CRM frontend from scratch — 10+ modules on a microservices architecture.",
+        "bullets": [
+          "Shipped Cifra-Flow, an internal task-management tool adopted across the whole team",
+          "Built Cifra-Automate, an automations module wired to n8n via webhooks",
+          "Cut platform load times from 12s to 5s through performance optimizations"
+        ]
       },
       {
-        "date": "February 2025 - November 2025",
+        "date": "February 2025 — November 2025",
         "title": "Full Stack Developer",
         "company": "Rocket Launch",
-        "description": "I fully automated deployments with CI/CD using GitHub Actions, Docker, and Makefiles, going from 30 minutes to under 3. I built Apollo, our in-house live-class platform with an advanced video SDK, and a full PHP LMS with recorded classes, grading, and certificates. I managed AWS infrastructure and scaled an internal CRM with 7+ microservices."
+        "location": "Remote · Full-Time",
+        "description": "Built and maintained multiple online learning platforms, fully automating the CI/CD deployment pipeline.",
+        "bullets": [
+          "Automated deployments with GitHub Actions, Docker, and Makefiles — from 30 min to under 3",
+          "Built Apollo, an in-house live-class platform with an advanced video SDK and a full PHP LMS",
+          "Managed AWS infrastructure and scaled an internal CRM with 7+ microservices"
+        ]
       },
       {
-        "date": "April 2024 - June 2024",
+        "date": "April 2024 — June 2024",
         "title": "Frontend Developer (Internship)",
         "company": "Coinsenda",
-        "description": "My first professional role at a crypto fintech. I built React.js interfaces with Atomic Design, managed global state with Redux, and partnered with backend on service integration. I learned to write code with scalability in mind from day one."
+        "location": "Remote · Internship",
+        "description": "First professional role at a crypto fintech, building scalable interfaces with React.js.",
+        "bullets": [
+          "Built UIs with Atomic Design and managed global state with Redux",
+          "Collaborated with the backend team on service integration"
+        ]
       },
       {
-        "date": "January 2023 - October 2023",
+        "date": "January 2023 — October 2023",
         "title": "Mobile Frontend Developer",
         "company": "Freelancer",
-        "description": "I delivered a complete React Native app for a private company, owning every phase from design through final deployment."
+        "location": "Remote · Freelance",
+        "description": "Delivered a complete React Native app for a private company.",
+        "bullets": [
+          "Owned the full lifecycle — design, development, and deployment to app stores"
+        ]
       },
       {
-        "date": "February 2022 - November 2022",
+        "date": "February 2022 — November 2022",
         "title": "Frontend Developer",
         "company": "Freelancer",
-        "description": "Early client work building web UIs with React and JavaScript, improving user conversion by up to 30%."
+        "location": "Remote · Freelance",
+        "description": "Early client work building web UIs with React and JavaScript.",
+        "bullets": [
+          "Improved user conversion by up to 30% with optimized interfaces"
+        ]
       }
     ]
   },
@@ -79,14 +117,14 @@
       {
         "name": "InMonteriaHouse",
         "emoji": "🏠",
-        "summary": "Rental platform with MERN and Firebase for guests and property owners.",
+        "summary": "Rental platform built with MERN and Firebase. Travelers can book stays and owners can manage listings from a clean dashboard.",
         "description": "University project to manage rentals. Users can search and book accommodation in the city; owners can list and manage properties. Built from scratch with the MERN stack and Firebase."
       },
 
       {
         "name": "KristCar",
         "emoji": "🚗",
-        "summary": "Car rental with Next.js, Stripe payments, and Prisma.",
+        "summary": "Car rental built with Next.js, Stripe, and Prisma. Features an admin dashboard and secure payments.",
         "description": "KristCar is a car rental service that lets users rent vehicles quickly and easily."
       }
     ]

@@ -29,13 +29,13 @@ const aboutHref = locale === "en" ? "/en/#sobre-mi" : "/#sobre-mi";
       >{t.footer.madeWith}</span
     >
     <ul
-      class="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 mt-3 text-sm font-medium dark:text-white/90 sm:mt-0 md:justify-end"
+      class="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 mt-3 text-sm font-medium text-zinc-800/90 dark:text-white/90 sm:mt-0 md:justify-end"
     >
       <li class="flex items-center me-2 md:me-4">
         <LanguageSwitcher locale={locale} t={t} menuPlacement="top" />
       </li>
       <li>
-        <a href={aboutHref} class="hover:underline me-4 md:me-6"
+        <a href={aboutHref} class="hover:underline me-4 md:me-6 "
           >{t.footer.about}</a
         >
       </li>

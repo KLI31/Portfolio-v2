@@ -1,6 +1,6 @@
 ---
 import Github from "../icons/Github.astro";
-import ExternalLink from "../icons/ExternalLink.astro";
+import Globe from "../icons/Globe.astro";
 
 interface Project {
   name: string;
@@ -21,86 +21,82 @@ interface Props {
 const { projects, codeLabel, goToLinkLabel } = Astro.props;
 ---
 
-<ul
-  class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
-  role="list"
->
+<ul class="grid grid-cols-1 gap-3 md:grid-cols-2" role="list">
   {
-    projects.map(({ name, emoji, summary, link, github, image, tags }) => (
-      <li>
-        <article
-          class="group/project flex h-full flex-col rounded-2xl bg-white/70 p-5 shadow-sm ring-1 ring-black/[0.06] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-black/5 hover:ring-black/[0.08] motion-reduce:hover:translate-y-0 dark:bg-neutral-950/60 dark:ring-white/[0.08] dark:hover:bg-neutral-950 dark:hover:shadow-black/40 dark:hover:ring-yellow-500/20 md:p-6"
-        >
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex min-w-0 flex-1 items-start gap-3">
-              <div
-                class="size-10 shrink-0 overflow-hidden rounded-xl bg-gray-100 ring-1 ring-black/[0.04] transition duration-300 group-hover/project:ring-2 group-hover/project:ring-yellow-500/30 dark:bg-neutral-900 dark:ring-white/10"
-              >
-                <img
-                  src={image}
-                  alt=""
-                  width="40"
-                  height="40"
-                  class="size-full object-cover transition duration-300 group-hover/project:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div class="min-w-0 flex-1 pt-0.5">
-                {link ? (
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex max-w-full items-center gap-1.5 font-semibold tracking-tight text-gray-900 transition hover:text-yellow-600 dark:text-white dark:hover:text-yellow-400"
-                    aria-label={`${name} — ${goToLinkLabel}`}
-                  >
-                    <span class="truncate">{name}</span>
-                    <ExternalLink class="size-3.5 shrink-0 opacity-50 transition group-hover/project:opacity-100" />
-                  </a>
-                ) : (
-                  <h3 class="truncate font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {name}
-                  </h3>
-                )}
-              </div>
+    projects.map(({ name, summary, link, github, image, tags }) => {
+      return (
+        <li>
+          <article class="flex h-full flex-col rounded-xl overflow-hidden ring-1 ring-black/[0.07] dark:ring-white/[0.08]">
+
+            {/* Screenshot */}
+            <div class="aspect-video overflow-hidden border-b border-zinc-200 dark:border-zinc-700/60">
+              <img
+                src={image}
+                alt={name}
+                width="640"
+                height="360"
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
             </div>
-            {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="shrink-0 rounded-lg p-2 text-gray-500 transition hover:bg-black/[0.04] hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-white"
-                aria-label={`${name} — ${codeLabel}`}
-              >
-                <Github class="size-5" />
-              </a>
-            )}
-          </div>
 
-          <p
-            class="mt-3.5 text-pretty text-sm leading-relaxed text-gray-600 dark:text-gray-400"
-          >
-            <span class="mr-1.5 inline-block" aria-hidden="true">{emoji}</span>
-            {summary}
-          </p>
+            {/* Card body */}
+            <div class="flex flex-col flex-1 p-4 bg-white dark:bg-neutral-950/70">
 
-          <ul class="mt-auto pt-4 flex flex-wrap gap-2" aria-label="Stack">
-            {tags.map((tag) => {
-              const Icon = tag.icon;
-              return (
-                <li>
-                  <span
-                    class="inline-flex items-center gap-1.5 rounded-full border border-gray-200/90 bg-gray-50/80 px-2.5 py-1 text-xs font-medium text-gray-700 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300"
-                  >
-                    <Icon class="size-3.5 shrink-0 opacity-90" />
-                    {tag.name}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </article>
-      </li>
-    ))
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <h3 class="font-semibold text-base text-gray-900 dark:text-white leading-snug">
+                  {name}
+                </h3>
+                <div class="flex items-center shrink-0">
+                  {github && (
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${name} — ${codeLabel}`}
+                      class="p-1.5 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors"
+                    >
+                      <Github width="18px" height="18px" />
+                    </a>
+                  )}
+                  {link && (
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${name} — ${goToLinkLabel}`}
+                      class="p-1.5 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors"
+                    >
+                      <Globe class="size-[18px]" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <p class="text-[13px] leading-relaxed text-gray-500 dark:text-gray-400 flex-1 mb-3">
+                {summary}
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                {tags.map((tag) => {
+                  const Icon = tag.icon;
+                  return (
+                    <span
+                      class="relative group inline-block [&_svg]:w-6 [&_svg]:h-6 [&_svg]:block cursor-pointer opacity-60 hover:opacity-100 transition-all duration-200 ease-out hover:scale-110"
+                    >
+                      <Icon />
+                      <span class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-0.5 rounded-md text-[11px] font-medium bg-gray-900 dark:bg-zinc-100 text-white dark:text-gray-900 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 shadow-sm">
+                        {tag.name}
+                      </span>
+                    </span>
+                  );
+                })}
+              </div>
+
+            </div>
+          </article>
+        </li>
+      );
+    })
   }
 </ul>

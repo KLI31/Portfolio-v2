@@ -27,6 +27,19 @@ import Docker from "./icons/Docker.astro";
 import Expo from "./icons/Expo.astro";
 import Aws from "./icons/Aws.astro";
 import N8n from "./icons/N8n.astro";
+import Nginx from "./icons/Nginx.astro";
+import SocketIo from "./icons/SocketIo.astro";
+import Cursor from "./icons/Cursor.astro";
+import Python from "./icons/Python.astro";
+import Go from "./icons/Go.astro";
+import TanStack from "./icons/TanStack.astro";
+import Jwt from "./icons/Jwt.astro";
+import Sentry from "./icons/Sentry.astro";
+import Zed from "./icons/Zed.astro";
+import Claude from "./icons/Claude.astro";
+import Gemini from "./icons/Gemini.astro";
+import Codex from "./icons/Codex.astro";
+import Opencode from "./icons/Opencode.astro";
 
 export const TAGS = {
   React: {
@@ -109,6 +122,66 @@ export const TAGS = {
     class: "bg-[#6772E5]",
     icon: Stripe,
   },
+  Docker: {
+    name: "Docker",
+    class: "bg-[#0D2F4A]",
+    icon: Docker,
+  },
+  Aws: {
+    name: "AWS",
+    class: "bg-[#232F3E]",
+    icon: Aws,
+  },
+  Expo: {
+    name: "Expo",
+    class: "bg-[#18181B]",
+    icon: Expo,
+  },
+  N8n: {
+    name: "n8n",
+    class: "bg-[#EA4B71]",
+    icon: N8n,
+  },
+  Redux: {
+    name: "Redux",
+    class: "bg-[#764ABC]",
+    icon: Redux,
+  },
+  Astro: {
+    name: "Astro",
+    class: "bg-[#FFAA00]",
+    icon: Astro,
+  },
+  Python: {
+    name: "Python",
+    class: "bg-[#3776AB]",
+    icon: Python,
+  },
+  Go: {
+    name: "Go",
+    class: "bg-[#00ACD7]",
+    icon: Go,
+  },
+  TanStack: {
+    name: "TanStack",
+    class: "bg-[#FF4154]",
+    icon: TanStack,
+  },
+  Jwt: {
+    name: "JWT",
+    class: "bg-[#000000]",
+    icon: Jwt,
+  },
+  Claude: {
+    name: "Claude",
+    class: "bg-[#D97757]",
+    icon: Claude,
+  },
+  Nginx: {
+    name: "Nginx",
+    class: "bg-[#009639]",
+    icon: Nginx,
+  },
 };
 
 /** Rutas y metadatos por proyecto; textos en i18n */
@@ -133,6 +206,40 @@ export const PROJECTS_BASE = [
       "Prisma",
     ],
   },
+];
+
+/** Tech tags por experiencia (mismo orden que experience.items en i18n) */
+export const EXPERIENCE_TAGS = [
+  [
+    "React",
+    "TypeScript",
+    "Docker",
+    "N8n",
+    "Next",
+    "PostgreSql",
+    "Prisma",
+    "Node",
+    "Astro",
+    "Claude",
+    "Python",
+    "Jwt",
+  ],
+  [
+    "React",
+    "TypeScript",
+    "Aws",
+    "Docker",
+    "Next",
+    "PostgreSql",
+    "Nest",
+    "Node",
+    "Claude",
+    "Jwt",
+    "Nginx",
+  ],
+  ["React", "Redux", "JavaScript"],
+  ["ReactNative", "Expo"],
+  ["React", "JavaScript"],
 ];
 
 /** Enlace opcional a carta de recomendación por índice (mismo orden que experience.items en i18n) */
@@ -298,5 +405,70 @@ export const STACK = [
     name: "n8n",
     color: "#EA4B71",
     icon: N8n,
+  },
+  {
+    name: "Nginx",
+    color: "#009639",
+    icon: Nginx,
+  },
+  {
+    name: "Socket.io",
+    color: "#010101",
+    icon: SocketIo,
+  },
+  {
+    name: "Cursor",
+    color: "#6366F1",
+    icon: Cursor,
+  },
+  {
+    name: "Python",
+    color: "#3776AB",
+    icon: Python,
+  },
+  {
+    name: "Go",
+    color: "#00ACD7",
+    icon: Go,
+  },
+  {
+    name: "TanStack",
+    color: "#FF4154",
+    icon: TanStack,
+  },
+  {
+    name: "JWT",
+    color: "#D63AFF",
+    icon: Jwt,
+  },
+  {
+    name: "Sentry",
+    color: "#362D59",
+    icon: Sentry,
+  },
+  {
+    name: "Zed",
+    color: "#084CCF",
+    icon: Zed,
+  },
+  {
+    name: "Claude",
+    color: "#D97757",
+    icon: Claude,
+  },
+  {
+    name: "Gemini",
+    color: "#8E75B2",
+    icon: Gemini,
+  },
+  {
+    name: "Codex",
+    color: "#000000",
+    icon: Codex,
+  },
+  {
+    name: "Opencode",
+    color: "#131010",
+    icon: Opencode,
   },
 ];

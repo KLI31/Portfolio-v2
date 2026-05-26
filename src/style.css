@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-highlited: #F3C525;
+  --animate-border-spin: border-spin 7s linear infinite;
+}
+
+@keyframes border-spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 
 .shiny-circle {
   position: relative;
@@ -131,84 +142,11 @@
   }
 }
 
-.stacks ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-  list-style: none;
-}
-.stack {
-  position: relative;
-  width: 4.3em;
-  height: 4.3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-}
-.stack:hover::before,
-.stack:focus-visible::before,
-.stack:active::before {
-  border-color: var(--background-dif);
-  backdrop-filter: blur(14px);
-  transition: border-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-.stack:hover::after,
-.stack:focus-visible::after,
-.stack:active::after {
-  box-shadow: 0 0 35px 20px var(--background-dif);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.stack::after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  box-shadow: 0 0 35px 12px var(--background-dif);
-  z-index: -2;
-}
-
-.stack::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 1px solid transparent;
-  border-radius: 1em;
-  backdrop-filter: blur(30px);
-  z-index: -1;
-}
-
-@media (max-width: 600px) {
-  .stacks ul {
-    gap: 1em;
-    justify-content: center;
+@media (max-width: 768px) {
+  .profile-img {
+    width: 90px;
+    height: 90px;
   }
-
-  stack:hover::before,
-  .stack:focus-visible::before,
-  .stack:active::before {
-    backdrop-filter: blur(3px);
-    transition: border-color 0.3s ease, backdrop-filter 0.3s ease;
-  }
-
-  .stack:hover::after,
-  .stack:focus-visible::after,
-  .stack:active::after {
-    /* box-shadow: 0 0 10px 10px var(--background-dif); */
-    transition: box-shadow 0.3s ease-in-out;
-  }
-
-  /* .stack::after {
-    box-shadow: 0 0 10px 8px var(--background-dif);
-  } */
-
-  /* .stack::before {
-    backdrop-filter: blur(13px);
-  } */
 }
 
 tool-tip {
@@ -388,7 +326,6 @@ tool-tip:is([tip-position="left"], [tip-position="inline-start"]):dir(
   )::after {
   --_tip: var(--_left-tip);
 }
-
 tool-tip {
   --isRTL: -1;
 }

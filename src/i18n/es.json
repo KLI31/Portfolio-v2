@@ -24,13 +24,26 @@
   },
   "hero": {
     "greeting": "Hey, soy Luis David",
+    "fullName": "Luis David Rambao",
     "intro": "Más de 2 años de experiencia. <strong>Estudiante de Ingeniería en Sistemas</strong> y <strong>Desarrollador Full Stack</strong>, especializado en construir <strong>plataformas empresariales</strong>, <strong>sistemas educativos</strong> y <strong>aplicaciones móviles escalables</strong>.",
     "location": "Montería, Colombia",
     "available": "Disponible para trabajar",
     "downloadCv": "Descargar CV",
     "profileImageAlt": "Imagen de Luis David",
     "githubAria": "Enlace a GitHub",
-    "linkedinAria": "Enlace a LinkedIn"
+    "linkedinAria": "Enlace a LinkedIn",
+    "emailAria": "Enviar correo electrónico",
+    "locationLabel": "UBICACIÓN",
+    "emailLabel": "CORREO",
+    "pronounsLabel": "PRONOMBRES",
+    "email": "lrambao5432@gmail.com",
+    "pronouns": "él / he",
+    "rotatingPhrases": [
+      "Desarrollador Full Stack",
+      "Estudiante de Ingeniería",
+      "Disponible para trabajar",
+      "Amante del código limpio"
+    ]
   },
   "footer": {
     "madeWith": "Hecho con ❤️ inspirado en el portfolio de midudev",
@@ -44,31 +57,56 @@
         "date": "Diciembre 2025 - Marzo 2026",
         "title": "Desarrollador Full Stack",
         "company": "CIFRA IT",
-        "description": "Construí desde cero el frontend de Cifra-360, un CRM empresarial con más de 10 módulos y arquitectura de microservicios. También desarrollé Cifra-Flow, una herramienta interna de gestión de tareas adoptada por todo el equipo, y Cifra-Automate, un módulo de automatizaciones conectado a n8n vía webhooks. Optimicé el rendimiento de las plataformas oficiales reduciendo los tiempos de carga de 12s a 5s."
+        "location": "Montería, Colombia · Full-Time",
+        "description": "Construí desde cero el frontend de Cifra-360, un CRM empresarial con más de 10 módulos en arquitectura de microservicios.",
+        "bullets": [
+          "Desarrollé Cifra-Flow, herramienta interna de gestión de tareas adoptada por todo el equipo",
+          "Construí Cifra-Automate, módulo de automatizaciones conectado a n8n vía webhooks",
+          "Optimicé el rendimiento reduciendo los tiempos de carga de 12s a 5s"
+        ]
       },
       {
         "date": "Febrero 2025 - Noviembre 2025",
         "title": "Desarrollador Full Stack",
         "company": "Rocket Launch",
-        "description": "Automatizé por completo el proceso de despliegue con CI/CD usando GitHub Actions, Docker y Makefiles, pasando de 30 minutos a menos de 3. Construí Apollo, una plataforma propia de clases en vivo con SDK de video avanzado, y un LMS completo en PHP con clases grabadas, calificaciones y certificados. Gestioné infraestructura en AWS y escalé un CRM interno con más de 7 microservicios."
+        "location": "Remoto · Full-Time",
+        "description": "Construí y mantuve múltiples plataformas de aprendizaje online, automatizando el ciclo completo de despliegue.",
+        "bullets": [
+          "Automaticé CI/CD con GitHub Actions, Docker y Makefiles, pasando de 30 min a menos de 3",
+          "Construí Apollo, plataforma de clases en vivo con SDK de video avanzado, y un LMS completo en PHP",
+          "Gestioné infraestructura en AWS y escalé un CRM interno con más de 7 microservicios"
+        ]
       },
       {
         "date": "Abril 2024 - Junio 2024",
         "title": "Desarrollador Frontend (Pasantía)",
         "company": "Coinsenda",
-        "description": "Mi primera experiencia profesional en una fintech de criptomonedas. Construí interfaces con React.js siguiendo Atomic Design, manejé el estado global con Redux y colaboré con el equipo de backend en la integración de servicios. Aquí aprendí a escribir código pensando en escalabilidad desde el primer día."
+        "location": "Remoto · Pasantía",
+        "description": "Primera experiencia profesional en una fintech de criptomonedas, construyendo interfaces escalables con React.js.",
+        "bullets": [
+          "Construí UIs siguiendo Atomic Design y manejé el estado global con Redux",
+          "Colaboré con el equipo de backend en la integración de servicios"
+        ]
       },
       {
         "date": "Enero 2023 - Octubre 2023",
         "title": "Desarrollador Frontend Mobile",
         "company": "Freelancer",
-        "description": "Desarrollé una aplicación móvil completa con React Native para una empresa privada, liderando todas las etapas desde el diseño hasta el despliegue final."
+        "location": "Remoto · Freelance",
+        "description": "Desarrollé una aplicación móvil completa con React Native para una empresa privada.",
+        "bullets": [
+          "Lideré el ciclo completo: diseño, desarrollo y despliegue en tiendas de apps"
+        ]
       },
       {
         "date": "Febrero 2022 - Noviembre 2022",
         "title": "Desarrollador Frontend",
         "company": "Freelancer",
-        "description": "Primeros proyectos reales construyendo interfaces web con React y JavaScript para clientes, mejorando la conversión de usuarios hasta un 30%."
+        "location": "Remoto · Freelance",
+        "description": "Primeros proyectos reales construyendo interfaces web con React y JavaScript para clientes.",
+        "bullets": [
+          "Mejoré la conversión de usuarios hasta un 30% con interfaces optimizadas"
+        ]
       }
     ]
   },
@@ -79,14 +117,14 @@
       {
         "name": "InMonteriaHouse",
         "emoji": "🏠",
-        "summary": "Plataforma de alquileres con MERN y Firebase para ciudad y propietarios.",
+        "summary": "Plataforma de alquileres con MERN y Firebase. Permite a viajeros reservar alojamiento y a propietarios gestionar sus inmuebles desde un panel intuitivo.",
         "description": "Proyecto universitario para gestionar alquileres. Permite a usuarios buscar y reservar alojamiento en la ciudad, y a propietarios publicar y gestionar sus propiedades. Desarrollado desde cero con MERN Stack y Firebase."
       },
 
       {
         "name": "KristCar",
         "emoji": "🚗",
-        "summary": "Rentacar con Next.js, pagos Stripe y base de datos con Prisma.",
+        "summary": "Rentacar con Next.js, Stripe y Prisma. Incluye panel de administración, pagos seguros y gestión de reservas en tiempo real.",
         "description": "KristCar es un rentacar que permite a los usuarios alquilar vehículos de manera sencilla y rápida."
       }
     ]

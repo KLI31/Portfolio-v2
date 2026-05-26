@@ -43,28 +43,31 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2 "
+  class="fixed top-0 z-50 w-full "
 >
-  <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center flex-wrap md:items-center md:justify-center"
-  >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-    <div class="flex items-center gap-1 shrink-0 pl-2.5 ml-1 md:ml-2">
-      <LanguageSwitcher locale={locale} t={t} />
-      <ThemeToggle theme={t.theme} />
-
-    </div>
-  </nav>
+  <div class="header-bg w-full ">
+    <nav
+      class="w-full mx-auto container lg:max-w-3xl md:max-w-3xl flex items-center justify-between py-3 text-sm font-medium text-gray-600 dark:text-gray-200"
+    >
+      <div class="flex items-center gap-1 md:gap-2">
+        {
+          navItems.map((link) => (
+            <a
+              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+              aria-label={link.label}
+              href={link.url}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </div>
+      <div class="flex items-center gap-1 shrink-0">
+        <LanguageSwitcher locale={locale} t={t} />
+        <ThemeToggle theme={t.theme} />
+      </div>
+    </nav>
+  </div>
 </header>
 
 <script>
@@ -109,15 +112,35 @@ const navItems = [
 </script>
 
 <style>
-  nav {
-    animation: nav-shadown 1s linear both;
+  :root {
+    --header-bg: rgba(255, 255, 255, 0.75);
+    --header-border: rgba(0, 0, 0, 0.07);
+  }
+  :root.dark {
+    --header-bg: rgba(9, 9, 11, 0.8);
+    --header-border: rgba(255, 255, 255, 0.07);
+  }
+
+  .header-bg {
+    animation: nav-shadow 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
-  @keyframes nav-shadown {
+  @keyframes nav-shadow {
+    from {
+      background-color: transparent;
+      box-shadow: none;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+    }
     to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+      background-color: var(--header-bg);
+      box-shadow: 0 1px 0 var(--header-border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--header-border);
     }
   }
 </style>

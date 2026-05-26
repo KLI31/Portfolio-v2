@@ -1,12 +1,21 @@
 ---
 import ExperienceItem from "../components/ExperienceItem.astro";
 
+interface Tag {
+  name: string;
+  class: string;
+  icon: any;
+}
+
 interface Item {
   title: string;
   company: string;
   description: string;
   link?: string;
   date: string;
+  location?: string;
+  bullets?: string[];
+  tags?: Tag[];
 }
 
 interface Props {
@@ -17,15 +26,33 @@ interface Props {
 const { items, recommendationLetter } = Astro.props;
 ---
 
-<ol class="relative">
+<ol>
   {
-    items.map((experiencie) => (
-      <li class="">
-        <ExperienceItem
-          {...experiencie}
-          recommendationLetter={recommendationLetter}
-        />
-      </li>
-    ))
+    items.map((item, i) => {
+      const isLast = i === items.length - 1;
+      const isCurrent =
+        item.date.includes("Actualidad") || item.date.includes("Present");
+      return (
+        <li class="flex gap-5">
+          <div class="flex flex-col items-center flex-shrink-0 pt-1">
+            <span
+              class={`w-2 h-2 rounded-full flex-shrink-0 ring-2 ring-gray-50 dark:ring-neutral-950 ${
+                isCurrent ? "bg-green-500" : "bg-gray-400 dark:bg-gray-600"
+              }`}
+            />
+            {!isLast && (
+              <div class="w-px flex-1 bg-gray-300 dark:bg-gray-700 mt-2.5" />
+            )}
+          </div>
+          <!-- Content -->
+          <div class="flex-1 min-w-0 pb-10">
+            <ExperienceItem
+              {...item}
+              recommendationLetter={recommendationLetter}
+            />
+          </div>
+        </li>
+      );
+    })
   }
 </ol>

@@ -1,85 +1,168 @@
 ---
 import type es from "../i18n/es.json";
-import Circle from "./Circle.astro";
+import { RotatingText } from "./RotatingText";
+import { SpotifyWidget } from "./SpotifyWidget";
 import Github from "../icons/Github.astro";
 import LinkedIn from "../icons/LinkedIn.astro";
-import Location from "../icons/Location.astro";
-
+import Mail from "../icons/Mail.astro";
 import "../style.css";
 
 interface Props {
   hero: typeof es.hero;
+  locale: "es" | "en";
 }
 
-const { hero } = Astro.props;
+const { hero, locale } = Astro.props;
 ---
 
-<div class="max-w-3xl ">
-  <section
-    class="flex flex-col-reverse items-center justify-between gap-2 md:flex-row"
-  >
-    <div class="w-full md:w-3/7">
-      <h1
-        class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-      >
-        {hero.greeting}
-      </h1>
-      <p
-        class="mt-4 mb-6 text-xl text-gray-800 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-        set:html={hero.intro}
+<div class="max-w-3xl mx-auto">
+
+  <div class="flex items-center gap-3 mb-2">
+    <picture class="shrink-0">
+      <source
+        srcset="/icon.webp 300w, /icon.webp 800w"
+        sizes="(max-width: 768px) 64px, 64px"
+        type="image/webp"
       />
-      <div class="flex items-center">
-        <p class="text-3xl">
-          <span><Location /></span>
-          {hero.location}
-        </p>
-      </div>
-      <div class="flex items-center">
-        <p class=""><Circle />{hero.available}</p>
-      </div>
-      <div class="mt-5 flex items-center gap-7 social-links">
-        <a
-          href="/Curriculum.pdf"
-          download
-          class="relative inline-flex items-center px-5 py-2.5 rounded-full text-white font-medium bg-gradient-to-r from-yellow-400 to-yellow-400 shadow-md transition-all duration-300 ease-in hover:bg-gradient-to-r dark:from-gray-700 dark:to-gray-800 overflow-hidden group"
-        >
-          {hero.downloadCv}
-          <span
-            class="absolute inset-0 border-2 border-transparent rounded-full group-hover:border-yellow-500 transition-all duration-300 ease-in-out dark:group-hover:border-white"
-          ></span>
-        </a>
-        <a
-          href="https://github.com/KLI31"
-          target="_blank"
-          class="relative group block dark:shadow-md"
-          aria-label={hero.githubAria}
-        >
-          <Github width="35px" class="text-black dark:text-white" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/luisrambao/"
-          target="_blank"
-          class="relative group block dark:shadow-md"
-          aria-label={hero.linkedinAria}
-        >
-          <LinkedIn width="35px" class="text-blue-500 dark:text-white" />
-        </a>
-      </div>
+      <img
+        src="/icon.webp"
+        alt={hero.profileImageAlt}
+        class="w-16 h-16 rounded-xl object-cover ring-1 ring-gray-200 dark:ring-gray-700"
+        loading="lazy"
+      />
+    </picture>
+    <div class="min-w-0">
+      <h1 class="text-[1.75rem] font-bold text-gray-900 dark:text-white leading-tight tracking-tight">
+        {hero.fullName}
+      </h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+        <RotatingText phrases={hero.rotatingPhrases} client:load />
+      </p>
     </div>
-    <div class="w-full md:w-2/5  items-center md:mb-20 md:gap-x-3">
-      <picture>
-        <source
-          srcset="/icon.webp 300w, /icon.webp 800w"
-          sizes="(max-width: 768px) 300px, 800px"
-          type="image/webp"
-        />
-        <img
-          src="/icon.webp"
-          alt={hero.profileImageAlt}
-          class="profile-img rounded-full h-30 w-30 object-cover"
-          loading="lazy"
-        />
-      </picture>
+  </div>
+
+
+  <dl
+    class="flex flex-wrap gap-x-6 gap-y-5 py-3 text-sm mb-2"
+  >
+    <div>
+      <dt
+        class="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1.5"
+      >
+        {hero.locationLabel}
+      </dt>
+      <dd class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+        <svg
+          class="w-3.5 h-3.5 opacity-60 flex-shrink-0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+          ></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        {hero.location}
+      </dd>
     </div>
-  </section>
+    <div>
+      <dt
+        class="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1.5"
+      >
+        {hero.emailLabel}
+      </dt>
+      <dd>
+        <a
+          href={`mailto:${hero.email}`}
+          class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors"
+        >
+          <svg
+            class="w-3.5 h-3.5 opacity-60 shrink-0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          {hero.email}
+        </a>
+      </dd>
+    </div>
+    <div>
+      <dt
+        class="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1.5"
+      >
+        {hero.pronounsLabel}
+      </dt>
+      <dd class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+        <svg
+          class="w-3.5 h-3.5 opacity-60 flex-shrink-0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        {hero.pronouns}
+      </dd>
+    </div>
+  </dl>
+
+
+  <p
+    class="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400 mb-4 [&>strong]:font-semibold [&>strong]:text-yellow-600 dark:[&>strong]:text-white"
+    set:html={hero.intro}
+  />
+
+
+  <div class="mb-5">
+    <SpotifyWidget locale={locale} client:idle />
+  </div>
+
+
+  <div class="flex items-center gap-5">
+    <a
+      href="https://github.com/KLI31"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={hero.githubAria}
+      class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+    >
+      <Github width="20px" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/luisrambao/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={hero.linkedinAria}
+      class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
+    >
+      <LinkedIn width="20px" />
+    </a>
+    <a
+      href={`mailto:${hero.email}`}
+      aria-label={hero.emailAria}
+      class="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-white transition-colors duration-200"
+    >
+      <Mail class="w-5 h-5" />
+    </a>
+  </div>
 </div>
