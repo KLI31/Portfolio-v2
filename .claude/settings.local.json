@@ -6,7 +6,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
       "Bash(cd /tmp)",
       "Bash(node -e ' *)",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\lramb\\\\OneDrive\\\\Documentos\\\\DEV\\\\portfolio-v1\" -Recurse -Directory | Select-Object -First 50 FullName | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\lramb\\\\OneDrive\\\\Documentos\\\\DEV\\\\portfolio-v1\\\\src\" -Recurse | ForEach-Object { $_.FullName } | Sort-Object)"
     ]
   }
 }

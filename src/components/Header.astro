@@ -47,13 +47,16 @@ const navItems = [
 >
   <div class="header-bg w-full ">
     <nav
-      class="w-full mx-auto container lg:max-w-3xl md:max-w-3xl flex items-center justify-between py-3 text-sm font-medium text-gray-600 dark:text-gray-200"
+      class="w-full mx-auto container lg:max-w-3xl md:max-w-3xl flex items-center justify-between py-3 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-200 px-4 md:px-6"
     >
-      <div class="flex items-center gap-1 md:gap-2">
+      <div class="flex items-center gap-0 md:gap-1">
         {
           navItems.map((link) => (
             <a
-              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+              class:list={[
+                "relative block px-1.5 md:px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 whitespace-nowrap",
+                link.label === "contacto" && "hidden sm:block",
+              ]}
               aria-label={link.label}
               href={link.url}
             >
