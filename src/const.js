@@ -195,7 +195,7 @@ export const PROJECTS_BASE = [
     image: "/devlinks.png",
     link: "https://devlinks.lramdev.com/",
     github: "https://github.com/KLI31/DEVLINKS",
-    tags: ["React, Nest, PostgreSql, Prisma, Next, Docker, Claude"],
+    tags: ["React", "Nest", "PostgreSql", "Prisma", "Next", "Docker", "Claude"],
   },
   {
     image: "/project4.webp",
