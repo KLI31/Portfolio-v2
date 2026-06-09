@@ -184,13 +184,18 @@ export const TAGS = {
   },
 };
 
-/** Rutas y metadatos por proyecto; textos en i18n */
 export const PROJECTS_BASE = [
   {
     image: "/project1.webp",
     link: "https://inmonteriahose.onrender.com/",
     github: "https://github.com/KLI31/inMonteriaHouse",
     tags: ["React", "Node", "Tailwind", "Firebase", "MongoDB"],
+  },
+  {
+    image: "/devlinks.png",
+    link: "https://devlinks.lramdev.com/",
+    github: "https://github.com/KLI31/DEVLINKS",
+    tags: ["React, Nest, PostgreSql, Prisma, Next, Docker, Claude"],
   },
   {
     image: "/project4.webp",
