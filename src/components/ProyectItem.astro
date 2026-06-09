@@ -29,13 +29,13 @@ const { projects, codeLabel, goToLinkLabel } = Astro.props;
           <article class="flex h-full flex-col rounded-xl overflow-hidden ring-1 ring-black/[0.07] dark:ring-white/[0.08]">
 
             {/* Screenshot */}
-            <div class="aspect-video overflow-hidden border-b border-zinc-200 dark:border-zinc-700/60">
+            <div class="aspect-video overflow-hidden border-b border-zinc-200 dark:border-zinc-700/60 group/img">
               <img
                 src={image}
                 alt={name}
                 width="640"
                 height="360"
-                class="w-full h-full object-cover object-top"
+                class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover/img:scale-105"
                 loading="lazy"
               />
             </div>

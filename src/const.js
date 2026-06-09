@@ -192,12 +192,6 @@ export const PROJECTS_BASE = [
     tags: ["React", "Node", "Tailwind", "Firebase", "MongoDB"],
   },
   {
-    image: "/devlinks.png",
-    link: "https://devlinks.lramdev.com/",
-    github: "https://github.com/KLI31/DEVLINKS",
-    tags: ["React", "Nest", "PostgreSql", "Prisma", "Next", "Docker", "Claude"],
-  },
-  {
     image: "/project4.webp",
     github: "https://github.com/KLI31/KristCar-Rental",
     link: "https://krist-car.vercel.app/",
@@ -209,6 +203,22 @@ export const PROJECTS_BASE = [
       "Neon",
       "Stripe",
       "Prisma",
+    ],
+  },
+  {
+    image: "/devlinks.png",
+    link: "https://devlinks.lramdev.com/",
+    github: "https://github.com/KLI31/DEVLINKS",
+    tags: [
+      "React",
+      "Nest",
+      "PostgreSql",
+      "Prisma",
+      "Next",
+      "Docker",
+      "Claude",
+      "Jwt",
+      "TypeScript",
     ],
   },
 ];
