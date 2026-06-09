@@ -126,6 +126,12 @@
         "emoji": "🚗",
         "summary": "Car rental built with Next.js, Stripe, and Prisma. Features an admin dashboard and secure payments.",
         "description": "KristCar is a car rental service that lets users rent vehicles quickly and easily."
+      },
+      {
+        "name": "Devlink",
+        "emoji": "🔗",
+        "summary": "Developer link profile platform to consolidate professional links into a single customizable public page. Stack: Next.js, NestJS, PostgreSQL, Redis. Deployed on VPS with Docker, Traefik, and Dokploy",
+        "description": "DevLink is a platform that allows developers to create a personalized public profile to showcase their professional links and projects in one place."
       }
     ]
   },

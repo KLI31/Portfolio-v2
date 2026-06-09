@@ -126,6 +126,12 @@
         "emoji": "🚗",
         "summary": "Rentacar con Next.js, Stripe y Prisma. Incluye panel de administración, pagos seguros y gestión de reservas en tiempo real.",
         "description": "KristCar es un rentacar que permite a los usuarios alquilar vehículos de manera sencilla y rápida."
+      },
+      {
+        "name": "DevLink",
+        "emoji": "🔗",
+        "summary": "Plataforma de perfil de desarrollador que centraliza enlaces profesionales en una página pública personalizable. Stack: Next.js, NestJS, PostgreSQL, Redis. Desplegada en VPS con Docker, Traefik y Dokploy.",
+        "description": "evLinks es una plataforma que permite a los desarrolladores crear un perfil público personalizado para mostrar sus enlaces profesionales y proyectos en un solo lugar."
       }
     ]
   },
