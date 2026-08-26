@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
+import es from "../../i18n/es.json";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("es-CO", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+---
+
+<Layout
+    title={`Blog | ${es.meta.title}`}
+    description={es.meta.description}
+    lang="es"
+    t={es}
+    locale="es"
+>
+    <main class="w-full min-h-screen">
+        <SectionContainer class="pt-32 pb-6 md:pt-32 md:pb-8">
+            <h1 class="text-2xl font-semibold">{es.blog.title}</h1>
+            <p
+                class="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-prose"
+            >
+                {es.blog.description}
+            </p>
+        </SectionContainer>
+
+        <SectionContainer class="py-6 md:py-10">
+            <ul class="divide-y divide-gray-200 dark:divide-neutral-800">
+                {
+                    posts.map((post) => (
+                        <li>
+                            <a
+                                href={`/blog/${post.id}`}
+                                class="flex items-center justify-between gap-4 py-5 group"
+                            >
+                                <div class="min-w-0">
+                                    <time class="block text-xs text-gray-500 dark:text-gray-400 mb-1">
+                                        {formatDate(post.data.date)}
+                                    </time>
+                                    <p class="font-bold text-sm md:text-base group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition truncate">
+                                        {post.data.title}
+                                    </p>
+                                    <p class="font-normal text-sm text-gray-500 space-y-3">
+                                        {post.data.description}
+                                    </p>
+                                </div>
+                                <img
+                                    src={post.data.coverImage}
+                                    alt=""
+                                    class="w-20 h-14 md:w-28 md:h-20 object-cover rounded-md shrink-0 transition-transform duration-300 ease-out group-hover:scale-105"
+                                />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </SectionContainer>
+    </main>
+</Layout>

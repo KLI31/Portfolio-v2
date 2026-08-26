@@ -8,7 +8,8 @@
     "projects": "Proyectos",
     "education": "Estudios",
     "about": "Sobre mí",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "blog": "Blog"
   },
   "langSwitcher": {
     "buttonAria": "Seleccionar idioma",
@@ -44,6 +45,10 @@
       "Disponible para trabajar",
       "Amante del código limpio"
     ]
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Eventos, aprendizajes y decisiones técnicas que voy documentando en el camino."
   },
   "footer": {
     "madeWith": "Hecho con ❤️ inspirado en el portfolio de midudev",

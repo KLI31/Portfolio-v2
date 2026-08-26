@@ -10,5 +10,8 @@
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\lramb\\\\OneDrive\\\\Documentos\\\\DEV\\\\portfolio-v1\" -Recurse -Directory | Select-Object -First 50 FullName | ForEach-Object { $_.FullName })",
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\lramb\\\\OneDrive\\\\Documentos\\\\DEV\\\\portfolio-v1\\\\src\" -Recurse | ForEach-Object { $_.FullName } | Sort-Object)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "supabase"
+  ]
 }

@@ -4,146 +4,139 @@ import es from "../i18n/es.json";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 
 interface Props {
-  t: typeof es;
-  locale: "es" | "en";
+    t: typeof es;
+    locale: "es" | "en";
 }
 
 const { t, locale } = Astro.props;
 
 const sectionHref = (id: string) =>
-  locale === "en" ? `/en/#${id}` : `/#${id}`;
+    locale === "en" ? `/en/#${id}` : `/#${id}`;
 
 const navItems = [
-  {
-    title: t.nav.experience,
-    label: "experiencia",
-    url: sectionHref("experiencia"),
-  },
-  {
-    title: t.nav.projects,
-    label: "proyectos",
-    url: sectionHref("proyectos"),
-  },
-  {
-    title: t.nav.education,
-    label: "estudios",
-    url: sectionHref("estudios"),
-  },
-  {
-    title: t.nav.about,
-    label: "sobre-mi",
-    url: sectionHref("sobre-mi"),
-  },
-  {
-    title: t.nav.contact,
-    label: "contacto",
-    url: "mailto:lrambao5432@gmail.com",
-  },
+    {
+        title: t.nav.experience,
+        label: "experiencia",
+        url: sectionHref("experiencia"),
+    },
+    {
+        title: t.nav.projects,
+        label: "proyectos",
+        url: sectionHref("proyectos"),
+    },
+    {
+        title: t.nav.education,
+        label: "estudios",
+        url: sectionHref("estudios"),
+    },
+    {
+        title: t.nav.about,
+        label: "sobre-mi",
+        url: sectionHref("sobre-mi"),
+    },
+    {
+        title: t.nav.contact,
+        label: "contacto",
+        url: "mailto:lrambao5432@gmail.com",
+    },
 ];
+
+if (locale === "es") {
+    navItems.splice(navItems.length - 1, 0, {
+        title: t.nav.blog,
+        label: "blog",
+        url: "/blog",
+    });
+}
 ---
 
-<header
-  class="fixed top-0 z-50 w-full "
->
-  <div class="header-bg w-full ">
-    <nav
-      class="w-full mx-auto container lg:max-w-3xl md:max-w-3xl flex items-center justify-between py-3 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-200 px-4 md:px-6"
-    >
-      <div class="flex items-center gap-0 md:gap-1">
-        {
-          navItems.map((link) => (
-            <a
-              class:list={[
-                "relative block px-1.5 md:px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 whitespace-nowrap",
-                link.label === "contacto" && "hidden sm:block",
-              ]}
-              aria-label={link.label}
-              href={link.url}
-            >
-              {link.title}
-            </a>
-          ))
-        }
-      </div>
-      <div class="flex items-center gap-1 shrink-0">
-        <LanguageSwitcher locale={locale} t={t} />
-        <ThemeToggle theme={t.theme} />
-      </div>
-    </nav>
-  </div>
+<header class="fixed top-0 z-50 w-full">
+    <div class="header-bg w-full">
+        <nav
+            class="w-full mx-auto container lg:max-w-3xl md:max-w-3xl flex items-center justify-between py-3 text-xs md:text-sm font-normal text-gray-600 dark:text-gray-200 px-4 md:px-6"
+        >
+            <div class="flex items-center gap-0 md:gap-1">
+                {
+                    navItems.map((link) => (
+                        <a
+                            class:list={[
+                                "relative block px-1.5 md:px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 whitespace-nowrap",
+                                link.label === "contacto" && "hidden sm:block",
+                            ]}
+                            aria-label={link.label}
+                            href={link.url}
+                        >
+                            {link.title}
+                        </a>
+                    ))
+                }
+            </div>
+            <div class="flex items-center gap-1 shrink-0">
+                <LanguageSwitcher locale={locale} t={t} />
+                <ThemeToggle theme={t.theme} />
+            </div>
+        </nav>
+    </div>
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+    document.addEventListener("astro:page-load", () => {
+        const sections = document.querySelectorAll("section");
+        const navItems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500");
-            } else {
-              item.classList.remove("text-yellow-500");
-            }
-          });
-        }
-      });
-    };
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navItems.forEach((item) => {
+                        if (
+                            item.getAttribute("aria-label") == entry.target.id
+                        ) {
+                            item.classList.add("text-yellow-500");
+                        } else {
+                            item.classList.remove("text-yellow-500");
+                        }
+                    });
+                }
+            });
+        };
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    });
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section);
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.3,
         });
-      }
-    };
-  });
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === "hidden") {
+                observer.disconnect();
+            } else {
+                sections.forEach((section) => {
+                    observer.observe(section);
+                });
+            }
+        };
+    });
 </script>
 
 <style>
-  :root {
-    --header-bg: rgba(255, 255, 255, 0.75);
-    --header-border: rgba(0, 0, 0, 0.07);
-  }
-  :root.dark {
-    --header-bg: rgba(9, 9, 11, 0.8);
-    --header-border: rgba(255, 255, 255, 0.07);
-  }
-
-  .header-bg {
-    animation: nav-shadow 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  @keyframes nav-shadow {
-    from {
-      background-color: transparent;
-      box-shadow: none;
-      backdrop-filter: blur(0px);
-      -webkit-backdrop-filter: blur(0px);
-      border-bottom: 1px solid transparent;
+    .header-bg {
+        animation: nav-blur 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
     }
-    to {
-      background-color: var(--header-bg);
-      box-shadow: 0 1px 0 var(--header-border);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--header-border);
+
+    @keyframes nav-blur {
+        from {
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
+        to {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
     }
-  }
 </style>
