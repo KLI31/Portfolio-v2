@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Hero from "./Hero.astro";
 import SectionContainer from "./SectionContainer.astro";
@@ -14,104 +15,154 @@ import Education from "./Education.astro";
 import DailyQuote from "./DailyQuote";
 import es from "../i18n/es.json";
 import {
-  PROJECTS_BASE,
-  TAGS,
-  EXPERIENCE_LINKS,
-  EXPERIENCE_TAGS,
-  EDUCATION_IMAGES,
+    PROJECTS_BASE,
+    TAGS,
+    EXPERIENCE_LINKS,
+    EXPERIENCE_TAGS,
+    EDUCATION_IMAGES,
 } from "../const";
 
 interface Props {
-  locale: "es" | "en";
-  t: typeof es;
+    locale: "es" | "en";
+    t: typeof es;
 }
 
 const { locale, t } = Astro.props;
 
 const projects = PROJECTS_BASE.map((base, i) => ({
-  ...base,
-  name: t.projects.items[i].name,
-  emoji: t.projects.items[i].emoji,
-  summary: t.projects.items[i].summary,
-  tags: base.tags.map((key) => TAGS[key]),
+    ...base,
+    name: t.projects.items[i].name,
+    emoji: t.projects.items[i].emoji,
+    summary: t.projects.items[i].summary,
+    tags: base.tags.map((key) => TAGS[key]),
 }));
 
 const experienceItems = t.experience.items.map((item, i) => ({
-  ...item,
-  link: EXPERIENCE_LINKS[i],
-  tags: (EXPERIENCE_TAGS[i] ?? []).map((key) => TAGS[key]).filter(Boolean),
+    ...item,
+    link: EXPERIENCE_LINKS[i],
+    tags: (EXPERIENCE_TAGS[i] ?? []).map((key) => TAGS[key]).filter(Boolean),
 }));
 
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const latestPosts = posts.slice(0, 4);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString(locale === "en" ? "en-US" : "es-CO", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+
 const educationItems = t.education.items.map((item, i) => ({
-  ...item,
-  image: EDUCATION_IMAGES[i],
+    ...item,
+    image: EDUCATION_IMAGES[i],
 }));
 ---
 
 <Layout
-  title={t.meta.title}
-  description={t.meta.description}
-  lang={locale}
-  t={t}
-  locale={locale}
+    title={t.meta.title}
+    description={t.meta.description}
+    lang={locale}
+    t={t}
+    locale={locale}
 >
-  <main class="w-full">
-    <SectionContainer class="pt-32 pb-6 md:pt-32 md:pb-8">
-      <Hero hero={t.hero} locale={locale} />
-    </SectionContainer>
+    <main class="w-full">
+        <SectionContainer class="pt-28 pb-6 md:pt-44 md:pb-8">
+            <Hero hero={t.hero} locale={locale} />
+        </SectionContainer>
 
-    <SectionContainer class="py-7 md:py-12">
-      <h2
-        class="flex items-center mb-4 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
-      >
-        {t.sections.stack}
-      </h2>
-      <StackList />
-    </SectionContainer>
+        <SectionContainer class="py-7 md:py-12">
+            <h2
+                class="flex items-center mb-4 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
+            >
+                {t.sections.stack}
+            </h2>
+            <StackList />
+        </SectionContainer>
 
-    <SectionContainer id="experiencia" class="py-10 md:py-12">
-      <h2
-        class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
-      >
-        {t.sections.experience}
-      </h2>
-      <Experience
-        items={experienceItems}
-        recommendationLetter={t.experience.recommendationLetter}
-      />
-    </SectionContainer>
+        <SectionContainer id="experiencia" class="py-10 md:py-12">
+            <h2
+                class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
+            >
+                {t.sections.experience}
+            </h2>
+            <Experience
+                items={experienceItems}
+                recommendationLetter={t.experience.recommendationLetter}
+            />
+        </SectionContainer>
 
-    <SectionContainer id="proyectos" class="py-10 md:py-12">
-      <h2
-        class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
-      >
-        {t.sections.projects}
-      </h2>
-      <ProyectItem
-        projects={projects}
-        codeLabel={t.projects.code}
-        goToLinkLabel={t.projects.goToLink}
-      />
-    </SectionContainer>
+        <SectionContainer id="proyectos" class="py-10 md:py-12">
+            <h2
+                class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
+            >
+                {t.sections.projects}
+            </h2>
+            <ProyectItem
+                projects={projects}
+                codeLabel={t.projects.code}
+                goToLinkLabel={t.projects.goToLink}
+            />
+        </SectionContainer>
 
-    <SectionContainer id="estudios" class="py-10 md:py-12">
-      <h2
-        class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
-      >
-        {t.sections.education}
-      </h2>
-      <Education items={educationItems} />
-    </SectionContainer>
+        <SectionContainer id="estudios" class="py-10 md:py-12">
+            <h2
+                class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
+            >
+                {t.sections.education}
+            </h2>
+            <Education items={educationItems} />
+        </SectionContainer>
 
-    <SectionContainer id="sobre-mi" class="py-10 md:py-12">
-      <h2
-        class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
-      >
-        {t.sections.about}
-      </h2>
-      <AboutMe about={t.about} />
+        {
+            posts.length > 0 && (
+                <SectionContainer id="blog" class="py-10 md:py-12">
+                    <h2 class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                        {t.sections.blog}
+                    </h2>
+                    <ul class="divide-y divide-gray-200 dark:divide-neutral-800">
+                        {latestPosts.map((post) => (
+                            <li>
+                                <a
+                                    href={`/blog/${post.id}`}
+                                    class="block py-5 group"
+                                >
+                                    <time class="block text-xs text-gray-500 dark:text-gray-400 mb-1">
+                                        {formatDate(post.data.date)}
+                                    </time>
+                                    <p class="font-bold text-sm md:text-base group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition">
+                                        {post.data.title}
+                                    </p>
+                                    <p class="font-normal text-sm text-gray-500">
+                                        {post.data.description}
+                                    </p>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    {posts.length > 4 && (
+                        <a
+                            href="/blog"
+                            class="inline-block mt-5 text-sm text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition"
+                        >
+                            {t.blog.seeOthers} &rarr;
+                        </a>
+                    )}
+                </SectionContainer>
+            )
+        }
 
-      <DailyQuote locale={locale} client:load />
-    </SectionContainer>
-  </main>
+        <SectionContainer id="sobre-mi" class="py-10 md:py-12">
+            <h2
+                class="flex items-center mb-5 text-xs font-medium gap-x-3 uppercase tracking-widest text-gray-500 dark:text-gray-400"
+            >
+                {t.sections.about}
+            </h2>
+            <AboutMe about={t.about} />
+
+            <DailyQuote locale={locale} client:load />
+        </SectionContainer>
+    </main>
 </Layout>

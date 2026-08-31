@@ -1,0 +1,430 @@
+---
+import Briefcase from "../icons/Briefcase.astro";
+import CodeIcon from "../icons/CodeIcon.astro";
+import Book from "../icons/Book.astro";
+import User from "../icons/User.astro";
+import Mail from "../icons/Mail.astro";
+import SunIcon from "../icons/Sun.astro";
+import MoonIcon from "../icons/Moon.astro";
+import SystemIcon from "../icons/System.astro";
+import es from "../i18n/es.json";
+
+interface Props {
+    t: typeof es;
+    locale: "es" | "en";
+}
+
+const { t, locale } = Astro.props;
+
+const sectionHref = (id: string) =>
+    locale === "en" ? `/en/#${id}` : `/#${id}`;
+
+const navItems = [
+    {
+        title: t.nav.experience,
+        id: "experiencia",
+        url: sectionHref("experiencia"),
+        icon: "briefcase",
+    },
+    {
+        title: t.nav.projects,
+        id: "proyectos",
+        url: sectionHref("proyectos"),
+        icon: "code",
+    },
+    {
+        title: t.nav.education,
+        id: "estudios",
+        url: sectionHref("estudios"),
+        icon: "book",
+    },
+    {
+        title: t.nav.about,
+        id: "sobre-mi",
+        url: sectionHref("sobre-mi"),
+        icon: "user",
+    },
+    {
+        title: t.nav.contact,
+        id: "contacto",
+        url: "mailto:lrambao5432@gmail.com",
+        icon: "mail",
+    },
+];
+
+if (locale === "es") {
+    navItems.splice(navItems.length - 1, 0, {
+        title: t.nav.blog,
+        id: "blog",
+        url: sectionHref("blog"),
+        icon: "book",
+    });
+}
+
+const themeOptions = [
+    { id: "light" as const, label: t.theme.light },
+    { id: "dark" as const, label: t.theme.dark },
+    { id: "system" as const, label: t.theme.system },
+];
+---
+
+<div class="floating-menu-scrim" aria-hidden="true"></div>
+
+<div
+    class="fixed top-5 left-1/2 -translate-x-1/2 z-50 text-xs md:text-sm"
+    data-floating-menu-root
+>
+    <button
+        type="button"
+        class="floating-menu-btn relative flex items-center gap-4 rounded-full border border-gray-200/90 bg-white/95 py-2 pl-2 pr-6 shadow-md backdrop-blur-md transition hover:border-gray-300 dark:border-gray-600/40 dark:bg-neutral-900/95 dark:hover:border-gray-500"
+        aria-label={t.menu.openAria}
+        aria-expanded="false"
+        aria-haspopup="true"
+    >
+        <img
+            src="/me.webp"
+            alt={t.hero.profileImageAlt}
+            class="size-10 shrink-0 rounded-full object-cover"
+        />
+        <span class="flex flex-col items-start leading-tight">
+            <span
+                class="text-sm font-medium text-gray-800 dark:text-gray-100 md:text-base"
+                >{t.hero.fullName}</span
+            >
+            <span
+                class="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400"
+            >
+                <Mail class="size-3.5" />
+                {t.hero.email}
+            </span>
+        </span>
+        <kbd
+            class="ml-2 hidden shrink-0 rounded border border-gray-300 px-2 py-1 text-[10px] text-gray-500 sm:inline dark:border-gray-600 dark:text-gray-400"
+            >Ctrl K</kbd
+        >
+    </button>
+
+    <div
+        class="floating-menu-panel absolute left-0 top-full z-20 mt-2 hidden w-80 rounded-xl border border-gray-200/90 bg-white/95 p-3 pb-4 text-sm shadow-lg backdrop-blur-md dark:border-gray-600/40 dark:bg-neutral-900/95"
+        role="menu"
+    >
+        <p
+            class="px-2 pb-1 pt-1 text-[11px] font-medium uppercase tracking-widest text-gray-400 dark:text-gray-500"
+        >
+            {t.menu.sections}
+        </p>
+        <ul>
+            <li>
+                <a
+                    href={locale === "en" ? "/en/" : "/"}
+                    class="floating-menu-item flex items-center gap-2.5 rounded-lg px-2 py-2 text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/80"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="shrink-0 text-gray-400 dark:text-gray-500"
+                    >
+                        <path
+                            d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+                        ></path>
+                    </svg>
+                    {t.menu.home}
+                </a>
+            </li>
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.url}
+                            aria-label={item.id}
+                            class="floating-menu-item flex items-center gap-2.5 rounded-lg px-2 py-2 text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/80"
+                        >
+                            <span class="shrink-0 text-gray-400 dark:text-gray-500 [&_svg]:size-[18px]">
+                                {item.icon === "briefcase" && <Briefcase />}
+                                {item.icon === "code" && <CodeIcon />}
+                                {item.icon === "book" && <Book />}
+                                {item.icon === "user" && <User />}
+                                {item.icon === "mail" && <Mail />}
+                            </span>
+                            {item.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div class="my-2 border-t border-gray-200/80 dark:border-gray-700/60">
+        </div>
+
+        <div class="flex items-center justify-between px-2 py-2">
+            <span class="text-gray-500 dark:text-gray-400"
+                >{t.menu.language}</span
+            >
+            <div
+                class="flex overflow-hidden rounded-md border border-gray-200 dark:border-gray-600/50"
+            >
+                <a
+                    href="/"
+                    class:list={[
+                        "px-2 py-1 text-xs font-medium transition",
+                        locale === "es"
+                            ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
+                            : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800/80",
+                    ]}
+                    aria-current={locale === "es" ? "page" : undefined}
+                >
+                    ES
+                </a>
+                <a
+                    href="/en/"
+                    class:list={[
+                        "px-2 py-1 text-xs font-medium transition",
+                        locale === "en"
+                            ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
+                            : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800/80",
+                    ]}
+                    aria-current={locale === "en" ? "page" : undefined}
+                >
+                    EN
+                </a>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between px-2 py-2">
+            <span class="text-gray-500 dark:text-gray-400"
+                >{t.theme.toggleLabel}</span
+            >
+            <div
+                class="floating-menu-theme flex overflow-hidden rounded-md border border-gray-200 dark:border-gray-600/50"
+            >
+                {
+                    themeOptions.map(({ id, label }) => (
+                        <button
+                            type="button"
+                            data-theme={id}
+                            aria-label={label}
+                            class="floating-menu-theme-option flex items-center justify-center px-2 py-1.5 text-gray-500 transition hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800/80"
+                        >
+                            {id === "light" && (
+                                <SunIcon width="15" height="15" />
+                            )}
+                            {id === "dark" && (
+                                <MoonIcon width="15" height="15" />
+                            )}
+                            {id === "system" && (
+                                <SystemIcon width="15" height="15" />
+                            )}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .floating-menu-scrim {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 8rem;
+        pointer-events: none;
+        z-index: 40;
+        backdrop-filter: blur(0px);
+        -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+        mask-image: linear-gradient(to bottom, black, transparent);
+        animation: floating-menu-scrim-blur linear both 0.5s;
+        animation-timeline: scroll(root);
+        animation-range: 0 300px;
+    }
+
+    @keyframes floating-menu-scrim-blur {
+        to {
+            backdrop-filter: blur(50px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .floating-menu-scrim {
+            animation: none;
+            backdrop-filter: blur(50px);
+        }
+    }
+
+    .floating-menu-panel.is-open {
+        display: block;
+        animation: floating-menu-in 0.12s ease-out;
+    }
+
+    @keyframes floating-menu-in {
+        from {
+            opacity: 0;
+            transform: scale(0.97) translateY(-4px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .floating-menu-item.is-active {
+        color: #ca8a04;
+        background-color: rgba(234, 179, 8, 0.1);
+    }
+
+    :global(.dark) .floating-menu-item.is-active {
+        color: #facc15;
+    }
+
+    .floating-menu-theme-option.is-active {
+        background-color: rgba(234, 179, 8, 0.15);
+        color: #ca8a04;
+    }
+
+    :global(.dark) .floating-menu-theme-option.is-active {
+        color: #facc15;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .floating-menu-panel.is-open {
+            animation: none;
+        }
+    }
+</style>
+
+<script>
+    function initFloatingMenu() {
+        const root = document.querySelector("[data-floating-menu-root]");
+        if (!root) return () => {};
+
+        const btn = root.querySelector<HTMLButtonElement>(".floating-menu-btn");
+        const panel = root.querySelector<HTMLElement>(".floating-menu-panel");
+        const items = root.querySelectorAll<HTMLElement>(".floating-menu-item");
+        const themeOptions = root.querySelectorAll<HTMLButtonElement>(
+            ".floating-menu-theme-option",
+        );
+        if (!btn || !panel) return () => {};
+
+        const ac = new AbortController();
+        const { signal } = ac;
+        const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+        const close = () => {
+            panel.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+        };
+
+        const open = () => {
+            panel.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+        };
+
+        const toggle = () => {
+            if (panel.classList.contains("is-open")) close();
+            else open();
+        };
+
+        btn.addEventListener(
+            "click",
+            (e) => {
+                e.stopPropagation();
+                toggle();
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            "click",
+            (e) => {
+                if (!root.contains(e.target as Node)) close();
+            },
+            { signal },
+        );
+
+        document.addEventListener(
+            "keydown",
+            (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+                    e.preventDefault();
+                    toggle();
+                } else if (e.key === "Escape") {
+                    close();
+                }
+            },
+            { signal },
+        );
+
+        // Section highlighting
+        const sections = document.querySelectorAll("section[id]");
+        const sectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    items.forEach((item) => {
+                        item.classList.toggle(
+                            "is-active",
+                            item.getAttribute("aria-label") === entry.target.id,
+                        );
+                    });
+                });
+            },
+            { root: null, rootMargin: "0px", threshold: 0.3 },
+        );
+        sections.forEach((section) => sectionObserver.observe(section));
+
+        // Theme
+        const getThemePreference = (): string =>
+            typeof localStorage !== "undefined"
+                ? (localStorage.getItem("theme") ?? "system")
+                : matchMedia.matches
+                  ? "dark"
+                  : "light";
+
+        const applyTheme = () => {
+            const pref = getThemePreference();
+            const isDark =
+                pref === "dark" || (pref === "system" && matchMedia.matches);
+            document.documentElement.classList.toggle("dark", isDark);
+            themeOptions.forEach((opt) => {
+                opt.classList.toggle("is-active", opt.dataset.theme === pref);
+            });
+        };
+
+        matchMedia.addEventListener("change", applyTheme, { signal });
+
+        themeOptions.forEach((opt) => {
+            opt.addEventListener(
+                "click",
+                () => {
+                    const value = opt.dataset.theme;
+                    if (value) {
+                        localStorage.setItem("theme", value);
+                        applyTheme();
+                    }
+                },
+                { signal },
+            );
+        });
+
+        applyTheme();
+
+        return () => {
+            ac.abort();
+            sectionObserver.disconnect();
+            close();
+        };
+    }
+
+    let dispose: (() => void) | undefined;
+
+    document.addEventListener("astro:page-load", () => {
+        dispose?.();
+        dispose = initFloatingMenu();
+    });
+</script>

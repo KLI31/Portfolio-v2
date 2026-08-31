@@ -15,12 +15,19 @@
     "es": "Español",
     "en": "English"
   },
+  "menu": {
+    "openAria": "Open menu",
+    "sections": "Sections",
+    "language": "Language",
+    "home": "Home"
+  },
   "sections": {
     "experience": "Work experience",
     "projects": "My projects",
     "education": "Education",
     "stack": "Tech stack",
-    "about": "About me"
+    "about": "About me",
+    "blog": "Blog"
   },
   "hero": {
     "greeting": "Hey, I'm Luis David",
@@ -120,7 +127,6 @@
         "summary": "Rental platform built with MERN and Firebase. Travelers can book stays and owners can manage listings from a clean dashboard.",
         "description": "University project to manage rentals. Users can search and book accommodation in the city; owners can list and manage properties. Built from scratch with the MERN stack and Firebase."
       },
-
       {
         "name": "KristCar",
         "emoji": "🚗",
@@ -181,5 +187,12 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Events, learnings and technical decisions I document along the way.",
+    "seeOthers": "See other articles",
+    "backToHome": "Back to home",
+    "readingTime": "min read"
   }
 }

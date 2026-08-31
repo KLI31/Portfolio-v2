@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "@fontsource-variable/onest";
-import Header from "../components/Header.astro";
+import FloatingMenu from "../components/FloatingMenu.astro";
 import Footer from "../components/Footer.astro";
 import es from "../i18n/es.json";
 
@@ -11,9 +11,10 @@ interface Props {
   lang: string;
   locale: "es" | "en";
   t: typeof es;
+  footer?: boolean;
 }
 
-const { title, description, lang, locale, t } = Astro.props;
+const { title, description, lang, locale, t, footer = true } = Astro.props;
 import "../style.css";
 ---
 
@@ -42,9 +43,9 @@ import "../style.css";
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-screen bg-gray-50 dark:bg-neutral-950"
     >
     </div>
-    <Header t={t} locale={locale} />
+    <FloatingMenu t={t} locale={locale} />
     <slot />
-    <Footer t={t} locale={locale} />
+    {footer && <Footer t={t} locale={locale} />}
   </body>
 </html>
 <style is:global>
